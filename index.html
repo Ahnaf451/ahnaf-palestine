@@ -74,10 +74,11 @@
     }
     img {
       max-width: 100%;
-      max-width: 800px; /* massimo 800px su desktop */
       height: auto;
+      max-height: 450px; /* limite altezza immagini per PC */
       border-radius: 2px;
       box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      object-fit: contain;
     }
     .caption {
       display: block;
@@ -117,7 +118,7 @@
     #hamburger span {
       display: block;
       height: 4px;
-      background-color: #ce1126; /* rosso */
+      background-color: #ce1126; /* ROSSO */
       border-radius: 2px;
       transition: 0.3s;
     }
@@ -136,7 +137,6 @@
       transition: left 0.3s ease;
       z-index: 1000;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      overflow-y: auto;
     }
     #menu.open {
       left: 0;
@@ -153,7 +153,7 @@
       border-left: 4px solid transparent;
       padding-left: 10px;
       cursor: pointer;
-      color: #ce1126; /* rosso */
+      color: #ce1126; /* ROSSO */
       transition: border-color 0.3s;
     }
     #menu ul li:hover {
@@ -186,13 +186,8 @@
         font-size: 20px;
         padding-left: 60px;
       }
-      #hamburger span {
-        background-color: #ce1126; /* rosso anche su mobile */
-      }
       img {
-        max-width: 100%;
-        height: auto;
-        max-width: none; /* mobile lascia piena larghezza */
+        max-height: none; /* nessun limite su mobile */
       }
     }
   </style>
@@ -327,4 +322,4 @@
       <li><b>Convenzioni di Ginevra:</b> Regole d'oro per proteggere chi non combatte.</li>
       <li><b>Corte Penale Internazionale (CPI):</b> Indaga sui crimini individuali di guerra e genocidio.</li>
       <li><b>Apartheid e Genocidio:</b> Definizioni giuridiche che le organizzazioni internazionali usano per analizzare la segregazione e la distruzione di gruppi etnici.</li>
-      <li
+      <li><b>Autodeterminazione:</b> Il diritto fondamentale del pop
