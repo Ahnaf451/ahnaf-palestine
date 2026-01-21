@@ -332,3 +332,21 @@
   const menu = document.getElementById('menu');
   const links = menu.querySelectorAll('li');
 
+  // Apri/chiudi menu al clic sull'hamburger
+  hamburger.addEventListener('click', () => {
+    menu.classList.toggle('open');
+  });
+
+  // Funzione per scrollare alla sezione e chiudere il menu
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      const targetId = link.getAttribute('data-target');
+      const targetElem = document.getElementById(targetId);
+      if(targetElem) {
+        targetElem.scrollIntoView({behavior: 'smooth'});
+      }
+      menu.classList.remove('open');
+    });
+  });
+</script>
+
