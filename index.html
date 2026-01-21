@@ -71,12 +71,14 @@
       border: 1px solid #eee;
     }
     img {
-      width: 100%;
-      max-height: 300px;
-      height: auto;
-      object-fit: cover;
+      width: 100%;          /* si adatta al contenitore */
+      height: auto;         /* mantiene le proporzioni */
+      max-width: 600px;     /* limite massimo larghezza */
       border-radius: 2px;
       box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
     .caption {
       display: block;
@@ -107,6 +109,9 @@
       h1 { font-size: 28px; }
       h2 { font-size: 20px; }
       p { font-size: 16px; }
+      img {
+        max-width: 100%;     /* su mobile immagini più fluide */
+      }
     }
   </style>
 </head>
