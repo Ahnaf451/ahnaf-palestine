@@ -1,4 +1,58 @@
-<!DOCTYPE html>
+[12:49, 21/01/2026] Ahnaf: <!DOCTYPE html>
+
+<html lang="it">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Palestina raccontata da Ahnaf</title>
+
+  <style>
+
+    body {
+
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+      background: #f4f4f4;
+
+      margin: 0; padding: 0;
+
+      color: #333;
+
+      line-height: 1.8;
+
+    }
+
+    header {
+
+      background: #000;
+
+      color: white;
+
+      padding: 50px 20px;
+
+      text-align: center;
+
+      font-weight: 900;
+
+      font-size: 28px;
+
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+
+    }
+
+    main {
+
+      max-width: 1300px; /* Sito più largo come richi…
+[12:52, 21/01/2026] Ahnaf: https://ahnaf451.github.io/ahnaf-palestine/
+[13:33, 21/01/2026] Ahnaf: <!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
@@ -75,10 +129,8 @@
     img {
       max-width: 100%;
       height: auto;
-      max-height: 450px; /* limite altezza immagini per PC */
       border-radius: 2px;
       box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-      object-fit: contain;
     }
     .caption {
       display: block;
@@ -118,7 +170,7 @@
     #hamburger span {
       display: block;
       height: 4px;
-      background-color: #ce1126; /* ROSSO */
+      background-color: #005826; /* verde */
       border-radius: 2px;
       transition: 0.3s;
     }
@@ -153,11 +205,11 @@
       border-left: 4px solid transparent;
       padding-left: 10px;
       cursor: pointer;
-      color: #ce1126; /* ROSSO */
+      color: #005826;
       transition: border-color 0.3s;
     }
     #menu ul li:hover {
-      border-left-color: #005826; /* verde al passaggio */
+      border-left-color: #ce1126;
     }
 
     /* Scroll dolce */
@@ -185,9 +237,6 @@
       header {
         font-size: 20px;
         padding-left: 60px;
-      }
-      img {
-        max-height: none; /* nessun limite su mobile */
       }
     }
   </style>
@@ -322,4 +371,35 @@
       <li><b>Convenzioni di Ginevra:</b> Regole d'oro per proteggere chi non combatte.</li>
       <li><b>Corte Penale Internazionale (CPI):</b> Indaga sui crimini individuali di guerra e genocidio.</li>
       <li><b>Apartheid e Genocidio:</b> Definizioni giuridiche che le organizzazioni internazionali usano per analizzare la segregazione e la distruzione di gruppi etnici.</li>
-      <li><b>Autodeterminazione:</b> Il diritto fondamentale del pop
+      <li><b>Autodeterminazione:</b> Il diritto fondamentale del popolo palestinese di scegliere il proprio destino e la propria indipendenza.</li>
+    </ul>
+  </div>
+
+</main>
+
+<footer>
+  © 2026 Ahnaf – Progetto Educativo sulla Palestina - Creato con cura e rispetto per la storia.
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const menu = document.getElementById('menu');
+  const links = menu.querySelectorAll('li');
+
+  // Apri/chiudi menu al clic sull'hamburger
+  hamburger.addEventListener('click', () => {
+    menu.classList.toggle('open');
+  });
+
+  // Funzione per scrollare alla sezione e chiudere il menu
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      const targetId = link.getAttribute('data-target');
+      const targetElem = document.getElementById(targetId);
+      if(targetElem) {
+        targetElem.scrollIntoView({behavior: 'smooth'});
+      }
+      menu.classList.remove('open');
+    });
+  });
+</script>
