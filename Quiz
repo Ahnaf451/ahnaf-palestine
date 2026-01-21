@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quiz Palestina - Ahnaf</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f4f4;
+      color: #333;
+      padding: 20px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    h1 {
+      color: #005826;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .question {
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+    .answers label {
+      display: block;
+      margin-bottom: 8px;
+      cursor: pointer;
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 2px solid transparent;
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+    input[type="radio"]:checked + label {
+      border-color: #005826;
+      background-color: #e0f0df;
+    }
+    .correct {
+      background-color: #b7f1b7 !important;
+      border-color: #0b8a0b !important;
+    }
+    .incorrect {
+      background-color: #f1b7b7 !important;
+      border-color: #8a0b0b !important;
+    }
+    button {
+      display: block;
+      margin: 30px auto;
+      background-color: #005826;
+      color: white;
+      font-size: 18px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #00421a;
+    }
+    .result {
+      font-size: 20px;
+      font-weight: 700;
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Quiz Palestina</h1>
+
+  <form id="quiz-form">
+
+    <div class="question" id="q1">
+      1. Quando è stata proposta la Risoluzione ONU 181?
+      <div class="answers">
+        <input type="radio" name="q1" id="q1a" value="a" />
+        <label for="q1a">a) 1945</label>
+        <input type="radio" name="q1" id="q1b" value="b" />
+        <label for="q1b">b) 1947</label>
+        <input type="radio" name="q1" id="q1c" value="c" />
+        <label for="q1c">c) 1950</label>
+        <input type="radio" name="q1" id="q1d" value="d" />
+        <label for="q1d">d) 1967</label>
+      </div>
+    </div>
+
+    <div class="question" id="q2">
+      2. Chi fu il padre del Sionismo politico?
+      <div class="answers">
+        <input type="radio" name="q2" id="q2a" value="a" />
+        <label for="q2a">a) David Ben-Gurion</label>
+        <input type="radio" name="q2" id="q2b" value="b" />
+        <label for="q2b">b) Theodor Herzl</label>
+        <input type="radio" name="q2" id="q2c" value="c" />
+        <label for="q2c">c) Yasser Arafat</label>
+        <input type="radio" name="q2" id="q2d" value="d" />
+        <label for="q2d">d) Golda Meir</label>
+      </div>
+    </div>
+
+    <div class="question" id="q3">
+      3. Quale evento palestinese è chiamato "Nakba"?
+      <div class="answers">
+        <input type="radio" name="q3" id="q3a" value="a" />
+        <label for="q3a">a) La creazione dello Stato di Israele</label>
+        <input type="radio" name="q3" id="q3b" value="b" />
+        <label for="q3b">b) L'espulsione e fuga dei palestinesi nel 1948</label>
+        <input type="radio" name="q3" id="q3c" value="c" />
+        <label for="q3c">c) La Guerra dei Sei Giorni</label>
+        <input type="radio" name="q3" id="q3d" value="d" />
+        <label for="q3d">d) Gli Accordi di Oslo</label>
+      </div>
+    </div>
+
+    <div class="question" id="q4">
+      4. Quando iniziò la Prima Intifada?
+      <div class="answers">
+        <input type="radio" name="q4" id="q4a" value="a" />
+        <label for="q4a">a) 1987</label>
+        <input type="radio" name="q4" id="q4b" value="b" />
+        <label for="q4b">b) 1993</label>
+        <input type="radio" name="q4" id="q4c" value="c" />
+        <label for="q4c">c) 2000</label>
+        <input type="radio" name="q4" id="q4d" value="d" />
+        <label for="q4d">d) 1973</label>
+      </div>
+    </div>
+
+    <button type="submit">Invia Risposte</button>
+
+  </form>
+
+  <div class="result" id="result"></div>
+
+  <script>
+    const answers = {
+      q1: 'b',
+      q2: 'b',
+      q3: 'b',
+      q4: 'a'
+    };
+
+    const form = document.getElementById('quiz-form');
+    const resultDiv = document.getElementById('result');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      let correctCount = 0;
+      let total = Object.keys(answers).length;
+
+      // Per ogni domanda
+      for (const [q, correctAnswer] of Object.entries(answers)) {
+        const selected = form[q].value;
+
+        // Se non selezionata, niente controllo (puoi modificare se vuoi)
+        if (!selected) continue;
+
+        // Colora risposte giuste e sbagliate
+        const labels = form[q].parentNode.querySelectorAll('label');
+        labels.forEach(label => label.classList.remove('correct', 'incorrect'));
+
+        labels.forEach(label => {
+          if(label.htmlFor === q + correctAnswer) {
+            label.classList.add('correct');
+          }
+          if(label.htmlFor === q + selected && selected !== correctAnswer) {
+            label.classList.add('incorrect');
+          }
+        });
+
+        if (selected === correctAnswer) {
+          correctCount++;
+        }
+      }
+
+      resultDiv.textContent = `Hai risposto correttamente a ${correctCount} su ${total} domande.`;
+    });
+  </script>
+
+</body>
+</html>
