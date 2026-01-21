@@ -13,11 +13,10 @@
       line-height: 1.6;
     }
 
-    /* Header con padding-left per spazio hamburger */
     header {
       background: #000;
       color: white;
-      padding: 30px 15px 30px 60px; /* sinistra più larga per il tasto */
+      padding: 30px 15px 30px 60px;
       text-align: center;
       font-weight: 900;
       font-size: 22px;
@@ -28,7 +27,6 @@
       z-index: 900;
     }
 
-    /* Hamburger tasto */
     #hamburger {
       position: fixed;
       top: 15px;
@@ -36,7 +34,7 @@
       width: 30px;
       height: 22px;
       cursor: pointer;
-      z-index: 1100; /* sopra header e menu */
+      z-index: 1100;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -46,12 +44,11 @@
     #hamburger span {
       display: block;
       height: 4px;
-      background-color: #005826; /* verde */
+      background-color: #005826;
       border-radius: 2px;
       transition: 0.3s;
     }
 
-    /* Menu laterale */
     #menu {
       position: fixed;
       top: 0;
@@ -65,7 +62,7 @@
       transition: left 0.3s ease;
       z-index: 1000;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      overflow-y: auto; /* scroll verticale abilitato */
+      overflow-y: auto;
     }
 
     #menu.open {
@@ -85,15 +82,14 @@
       border-left: 4px solid transparent;
       padding-left: 10px;
       cursor: pointer;
-      color: #ce1126; /* rosso */
+      color: #ce1126;
       transition: border-color 0.3s;
     }
 
     #menu ul li:hover {
-      border-left-color: #005826; /* bordo verde al passaggio */
+      border-left-color: #005826;
     }
 
-    /* Layout main */
     main {
       max-width: 90%;
       width: 1200px;
@@ -104,7 +100,6 @@
       box-sizing: border-box;
     }
 
-    /* Titoli */
     h1 {
       color: #000;
       font-size: 32px;
@@ -140,7 +135,6 @@
       text-align: left;
     }
 
-    /* Immagini */
     .image-container {
       text-align: center;
       margin: 30px 0;
@@ -164,7 +158,6 @@
       font-style: italic;
     }
 
-    /* Box legale */
     .legal-box {
       background: #f0f0f0;
       padding: 20px;
@@ -173,7 +166,6 @@
       margin-top: 40px;
     }
 
-    /* Footer */
     footer {
       text-align: center;
       padding: 30px;
@@ -182,12 +174,10 @@
       margin-top: 60px;
     }
 
-    /* Scroll dolce */
     html {
       scroll-behavior: smooth;
     }
 
-    /* Responsive per smartphone */
     @media (max-width: 600px) {
       main {
         padding: 20px 15px;
@@ -213,14 +203,12 @@
 </head>
 <body>
 
-  <!-- Hamburger -->
   <div id="hamburger" aria-label="Menu" role="button" tabindex="0">
     <span></span>
     <span></span>
     <span></span>
   </div>
 
-  <!-- Menu laterale -->
   <nav id="menu" aria-label="Menu capitoli">
     <ul>
       <li data-target="origini">1. Le origini: Sionismo e Risoluzione ONU 181</li>
@@ -340,4 +328,16 @@
       <ul>
         <li><b>Convenzioni di Ginevra:</b> Regole d'oro per proteggere chi non combatte.</li>
         <li><b>Corte Penale Internazionale (CPI):</b> Indaga sui crimini individuali di guerra e genocidio.</li>
-        <li><b>Apartheid e Genocidio:</b> Definizioni giuridiche che le organizzazioni internazionali usano per analizzare la segregazione e la distruzione di grupp
+        <li><b>Apartheid e Genocidio:</b> Definizioni giuridiche che le organizzazioni internazionali usano per analizzare la segregazione e la distruzione di gruppi etnici.</li>
+        <li><b>Autodeterminazione:</b> Il diritto fondamentale del popolo palestinese di scegliere il proprio destino e la propria indipendenza.</li>
+      </ul>
+    </div>
+
+  </main>
+
+  <footer>
+    © 2026 Ahnaf – Progetto Educativo sulla Palestina - Creato con cura e rispetto per la storia.
+  </footer>
+
+  <script>
+    const hamburger = document.get
