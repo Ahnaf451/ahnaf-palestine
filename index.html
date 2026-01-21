@@ -2,109 +2,348 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Quiz sulla Palestina</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Palestina raccontata da Ahnaf</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
-      background: #f9f9f9;
+      background: #f4f4f4;
+      margin: 0; padding: 0;
       color: #333;
+      line-height: 1.6;
     }
-    h1 {
-      font-size: 36px;
-      color: #005826;
+    header {
+      background: #000;
+      color: white;
+      padding: 30px 15px 30px 60px; /* padding-left aumentato per hamburger */
       text-align: center;
       font-weight: 900;
-      margin-bottom: 40px;
+      font-size: 22px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+      position: relative;
+      z-index: 900;
     }
-    .question {
-      margin-bottom: 25px;
+    main {
+      max-width: 90%;
+      width: 1200px;
+      margin: 20px auto;
+      background: white;
+      padding: 30px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.1);
+      box-sizing: border-box;
     }
-    label {
-      display: block;
-      margin: 8px 0;
-      cursor: pointer;
-      font-size: 18px;
+    h1 {
+      color: #000;
+      font-size: 32px;
+      font-weight: 900;
+      margin-bottom: 20px;
+      border-bottom: 5px solid #005826;
+      padding-bottom: 10px;
     }
-    button {
-      background: #005826;
-      color: white;
-      border: none;
-      padding: 12px 25px;
-      font-size: 18px;
-      cursor: pointer;
-      border-radius: 6px;
-      display: block;
-      margin: 30px auto;
-      font-weight: 700;
-      transition: background 0.3s;
+    h2 {
+      color: #000;
+      font-size: 24px;
+      font-weight: 800;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      border-left: 8px solid #ce1126;
+      padding-left: 15px;
+      text-transform: uppercase;
     }
-    button:hover {
-      background: #00441a;
-    }
-    .result {
+    h3 {
+      color: #000;
       font-size: 20px;
       font-weight: 700;
       margin-top: 30px;
+      background: #f9f9f9;
+      padding: 10px;
+    }
+    p {
+      margin-bottom: 20px;
+      font-size: 17px;
+      text-align: left;
+    }
+    .image-container {
       text-align: center;
-      color: #ce1126;
+      margin: 30px 0;
+      background: #fdfdfd;
+      padding: 10px;
+      border: 1px solid #eee;
+    }
+    img {
+      width: 100%;
+      max-width: 700px;
+      min-width: 300px;
+      height: auto;
+      border-radius: 2px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .caption {
+      display: block;
+      font-size: 14px;
+      color: #555;
+      margin-top: 10px;
+      font-style: italic;
+    }
+    .legal-box {
+      background: #f0f0f0;
+      padding: 20px;
+      border-radius: 8px;
+      border-top: 5px solid #000;
+      margin-top: 40px;
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #000;
+      color: white;
+      margin-top: 60px;
+    }
+
+    /* Bottone Quiz */
+    .quiz-button {
+      display: inline-block;
+      background: #005826;
+      color: white;
+      padding: 15px 25px;
+      font-weight: 700;
+      font-size: 18px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin: 30px 0;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    .quiz-button:hover {
+      background: #ce1126;
+    }
+
+    /* Menu Hamburger */
+    #hamburger {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      width: 30px;
+      height: 22px;
+      cursor: pointer;
+      z-index: 1001;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    #hamburger span {
+      display: block;
+      height: 4px;
+      background-color: #005826; /* verde */
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* Menu laterale */
+    #menu {
+      position: fixed;
+      top: 0;
+      left: -260px;
+      width: 250px;
+      height: 100%;
+      background: white;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+      padding: 60px 20px 20px 20px;
+      box-sizing: border-box;
+      transition: left 0.3s ease;
+      z-index: 1000;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    #menu.open {
+      left: 0;
+    }
+    #menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    #menu ul li {
+      margin: 15px 0;
+      font-weight: 700;
+      font-size: 18px;
+      border-left: 4px solid transparent;
+      padding-left: 10px;
+      cursor: pointer;
+      color: #005826;
+      transition: border-color 0.3s;
+    }
+    #menu ul li:hover {
+      border-left-color: #ce1126;
+    }
+
+    /* Scroll dolce */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Mobile e piccoli schermi */
+    @media (max-width: 600px) {
+      main {
+        padding: 20px 15px;
+        margin: 10px auto;
+        width: 95%;
+      }
+      h1 { font-size: 28px; }
+      h2 { font-size: 20px; }
+      p { font-size: 16px; }
+      #menu {
+        width: 200px;
+        padding-top: 60px;
+      }
+      #menu ul li {
+        font-size: 16px;
+      }
+      header {
+        font-size: 20px;
+        padding-left: 60px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <h1>Quiz sulla Palestina</h1>
+<!-- Hamburger -->
+<div id="hamburger" aria-label="Menu" role="button" tabindex="0">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
 
-  <form id="quizForm">
-    <div class="question">
-      <p>1. In quale anno è stata proposta la Risoluzione ONU 181?</p>
-      <label><input type="radio" name="q1" value="1947" required> 1947</label>
-      <label><input type="radio" name="q1" value="1948"> 1948</label>
-      <label><input type="radio" name="q1" value="1967"> 1967</label>
-    </div>
+<!-- Menu laterale -->
+<nav id="menu" aria-label="Menu capitoli">
+  <ul>
+    <li data-target="origini">1. Le origini: Sionismo e Risoluzione ONU 181</li>
+    <li data-target="guerra1948">2. 1948: La Guerra e la Nakba</li>
+    <li data-target="resistenza">3. La Resistenza: OLP e Al-Fatah</li>
+    <li data-target="guerra1967">4. 1967: La Guerra dei Sei Giorni e la Linea Verde</li>
+    <li data-target="intifade">5. I tentativi di pace e le Intifade</li>
+    <li data-target="murodivisione">6. Il Muro e la divisione tra Fatah e Hamas</li>
+    <li data-target="eventi2023">7. Eventi recenti: Il 7 Ottobre e la crisi attuale</li>
+  </ul>
+</nav>
 
-    <div class="question">
-      <p>2. Che cos'è la Nakba?</p>
-      <label><input type="radio" name="q2" value="Catastrofe" required> La catastrofe palestinese del 1948</label>
-      <label><input type="radio" name="q2" value="Pace"> Un accordo di pace</label>
-      <label><input type="radio" name="q2" value="Conquista"> La conquista israeliana</label>
-    </div>
+<header>
+  Palestina raccontata da Ahnaf
+</header>
 
-    <div class="question">
-      <p>3. Chi ha guidato l'Organizzazione per la Liberazione della Palestina (OLP)?</p>
-      <label><input type="radio" name="q3" value="Arafat" required> Yasser Arafat</label>
-      <label><input type="radio" name="q3" value="Herzl"> Theodor Herzl</label>
-      <label><input type="radio" name="q3" value="Rabin"> Yitzhak Rabin</label>
-    </div>
+<main>
 
-    <button type="submit">Controlla Risultato</button>
-  </form>
+  <h1>Introduzione</h1>
+  <p>
+    Questo sito nasce per offrire una panoramica dettagliata e documentata sul conflitto israelo-palestinese, una delle questioni più complesse e durature della storia contemporanea. Attraverso questo percorso, curato da Ahnaf, esploreremo le radici del sionismo, le decisioni internazionali che hanno ridisegnato i confini e le tappe umane e politiche che hanno segnato la vita di milioni di persone. L'obiettivo è fornire strumenti critici per comprendere non solo il passato, ma anche le drammatiche sfide del presente.
+  </p>
 
-  <div id="result" class="result"></div>
+  <hr>
 
-  <script>
-    document.getElementById('quizForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      let score = 0;
-      const answers = {
-        q1: '1947',
-        q2: 'Catastrofe',
-        q3: 'Arafat'
-      };
-      const formData = new FormData(this);
-      for (const [key, value] of formData.entries()) {
-        if (answers[key] === value) {
-          score++;
-        }
-      }
-      const total = Object.keys(answers).length;
-      const result = document.getElementById('result');
-      result.textContent = `Hai risposto correttamente a ${score} domande su ${total}.`;
-    });
-  </script>
+  <h2 id="origini">1. Le origini: Sionismo e Risoluzione ONU 181</h2>
+  <h3>Il Sionismo di Theodor Herzl</h3>
+  <p>
+    Il movimento sionista nasce alla fine del XIX secolo come risposta alle violente persecuzioni (pogrom) subite dagli ebrei in Europa. Theodor Herzl, considerato il padre del sionismo politico, teorizzò la necessità di uno Stato ebraico dove il popolo potesse vivere in sicurezza e autodeterminazione. Nel 1897, il primo Congresso Sionista fissò l'obiettivo di stabilire una patria in Palestina, terra legata alla storia biblica ebraica, all'epoca sotto l'Impero Ottomano.
+  </p>
 
-</body>
-</html>
+  <h3>La Risoluzione 181 (1947)</h3>
+  <p>
+    Dopo gli orrori della Seconda Guerra Mondiale, la pressione per la creazione di uno Stato ebraico aumentò. Nel 1947, l'ONU propose il Piano di Spartizione: dividere la terra in due Stati indipendenti, uno arabo e uno ebraico, con Gerusalemme posta sotto un regime internazionale (Corpus Separatum). Sebbene la leadership ebraica accettò, il mondo arabo rifiutò la proposta, ritenendo ingiusto assegnare oltre il 50% del territorio a una minoranza che possedeva solo una frazione della terra.
+  </p>
+  <div class="image-container">
+    <img src="risoluzione onu 181.gif" alt="Risoluzione ONU 181" />
+    <span class="caption">Mappa del piano di spartizione ONU del 1947</span>
+  </div>
+
+  <h2 id="guerra1948">2. 1948: La Guerra e la Nakba</h2>
+  <p>
+    Con la fine del mandato britannico e la proclamazione dello Stato di Israele nel maggio 1948, esplose il conflitto armato. Gli eserciti di Egitto, Siria, Giordania, Libano e Iraq intervennero immediatamente. Israele non solo resistette, ma riuscì a occupare una porzione di territorio superiore a quella prevista dal piano ONU.
+  </p>
+  <h3>La Nakba - La Catastrofe</h3>
+  <p>
+    Per i palestinesi, la sconfitta militare significò la "Nakba". Circa 700.000 persone furono espulse o fuggirono dalle loro case, diventando profughi nei paesi limitrofi o in campi all'interno della Cisgiordania e di Gaza. Interi villaggi furono rasi al suolo. Questo evento non è solo un fatto storico, ma una ferita aperta che definisce ancora oggi la richiesta palestinese del "diritto al ritorno".
+  </p>
+  <div class="image-container">
+    <img src="nakba2.jpg" alt="La Nakba palestinese" />
+    <span class="caption">Profughi palestinesi in cammino durante l'esodo del 1948</span>
+  </div>
+
+  <h2 id="resistenza">3. La Resistenza: OLP e Al-Fatah</h2>
+  <p>
+    Nel 1964 nacque l'Organizzazione per la Liberazione della Palestina (OLP), con l'obiettivo di unificare la lotta palestinese. Sotto la guida di Yasser Arafat, leader del movimento Al-Fatah, l'OLP portò la causa palestinese al centro dell'attenzione mondiale, oscillando tra la resistenza armata e la ricerca di un riconoscimento diplomatico che arrivò ufficialmente negli anni '70.
+  </p>
+  <div class="image-container">
+    <img src="OLP.png" alt="Logo OLP" />
+    <span class="caption">I simboli della resistenza politica e dell'identità nazionale palestinese</span>
+  </div>
+
+  <h2 id="guerra1967">4. 1967: La Guerra dei Sei Giorni e la Linea Verde</h2>
+  <div class="image-container">
+    <img src="guerra dei 6 giorni.jpg" alt="Guerra 1967" />
+    <span class="caption">Immagine storica del conflitto del 1967</span>
+  </div>
+
+  <p>
+    In un attacco preventivo contro gli eserciti arabi in mobilitazione, Israele occupò in soli sei giorni la Cisgiordania, la Striscia di Gaza, Gerusalemme Est, il Sinai e le Alture del Golan. Questo evento trasformò Israele da stato minacciato a forza occupante.
+  </p>
+  <h3>La Risoluzione 242 e la Linea Verde</h3>
+  <p>
+    La "Linea Verde" era il confine stabilito dopo la guerra del 1948. Superandola nel 1967, Israele iniziò una politica di insediamenti civili (colonie) nei territori occupati, mossa considerata illegale dal diritto internazionale e dalla risoluzione ONU 242, che chiedeva il ritiro dai territori in cambio di una pace duratura.
+  </p>
+  <div class="image-container">
+    <img src="palestina-soldati-insediamente israeliani.jpg" alt="Insediamenti israeliani" />
+    <span class="caption">Esempio di insediamenti israeliani che frammentano il territorio palestinese</span>
+  </div>
+
+  <h2 id="intifade">5. I tentativi di pace e le Intifade</h2>
+  <p>
+    Il conflitto proseguì con la guerra dello Yom Kippur (1973) e i primi storici accordi di Camp David (1978) tra Israele ed Egitto. Tuttavia, la tensione nei territori occupati esplose nel 1987 con la <b>Prima Intifada</b>: una rivolta popolare basata su scioperi e resistenza civile.
+  </p>
+  <p>
+    Questa spinta portò agli <b>Accordi di Oslo (1993)</b>, dove Arafat e Rabin si strinsero la mano, promettendo la creazione di un'Autorità Nazionale Palestinese (ANP) e una soluzione a "due Stati". Ma le speranze morirono presto: l'assassinio di Rabin da parte di un estremista ebreo nel 1995 e l'aumento delle colonie portarono alla <b>Seconda Intifada (2000)</b>, molto più violenta e segnata da attacchi suicidi e dure repressioni.
+  </p>
+  <div class="image-container">
+    <img src="Intifada_in_Gaza_Strip_(FL45956268).jpg" alt="Sciopero di massa" />
+    <span class="caption">Manifestazioni e scioperi durante la prima Intifada palestinese</span>
+  </div>
+
+  <h2 id="murodivisione">6. Il Muro e la divisione tra Fatah e Hamas</h2>
+  <p>
+    Dal 2002, Israele ha costruito un'imponente barriera di separazione in Cisgiordania. Sebbene giustificata come misura di sicurezza, la barriera penetra profondamente nei territori palestinesi, isolando città e campi agricoli.
+  </p>
+  <p>
+    Nel 2005 Israele si è ritirato dalla Striscia di Gaza, ma le successive elezioni del 2006 hanno visto la vittoria di Hamas. Ciò ha portato a una guerra civile palestinese che ha diviso politicamente il popolo: Hamas controlla Gaza (soggetta a un duro blocco dal 2007), mentre Fatah amministra parti della Cisgiordania tramite l'ANP.
+  </p>
+  <div class="image-container">
+    <img src="muro.webp" alt="Muro di separazione" />
+    <span class="caption">Il muro di cemento che separa e isola le comunità in Cisgiordania</span>
+  </div>
+
+  <h2 id="eventi2023">7. Eventi recenti: Il 7 Ottobre e la crisi attuale</h2>
+  <p>
+    Il 7 ottobre 2023 segna l'inizio di una delle fasi più buie del conflitto. L'attacco di Hamas in territorio israeliano ha scatenato una risposta militare massiccia sulla Striscia di Gaza, portando a una crisi umanitaria senza precedenti, con decine di migliaia di vittime civili e la distruzione di gran parte delle infrastrutture vitali. L'ONU e le corti internazionali sono oggi chiamate a giudicare l'operato delle parti, mentre si discute drammaticamente di annessione della Cisgiordania e del destino dei civili.
+  </p>
+  <div class="image-container">
+    <img src="tutto distrutto.avif" alt="Distruzione recente" />
+    <span class="caption">Le drammatiche conseguenze dei conflitti recenti</span>
+  </div>
+
+  <!-- Bottone Vai al Quiz -->
+  <a href="Quiz.html" class="Quiz-button" aria-label="Vai al Quiz sulla Palestina">Vai al Quiz</a>
+
+  <div class="legal-box">
+  <h2>Appendice: Concetti di Diritto Internazionale</h2>
+  <p>Per comprendere il conflitto oggi, è necessario conoscere gli strumenti dell'ONU:</p>
+  <ul>
+    <li><b>Convenzioni di Ginevra:</b> Regole d'oro per proteggere chi non combatte.</li>
+    <li><b>Corte Penale Internazionale (CPI):</b> Indaga sui crimini individuali di guerra e genocidio.</li>
+    <li><b>Apartheid e Genocidio:</b> Definizioni giuridiche che le organizzazioni internazionali usano per analizzare la segregazione e la distruzione di gruppi etnici.</li>
+    <li><b>Autodeterminazione:</b> Il diritto fondamentale del popolo palestinese di scegliere il proprio destino e la propria indipendenza.</li>
+  </ul>
+</div>
