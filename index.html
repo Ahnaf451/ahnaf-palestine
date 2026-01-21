@@ -1,3 +1,8 @@
+Ok! Ti preparo subito il file HTML completo con tutto il testo, lo stile, il menu hamburger e il bottone "Vai al Quiz" inserito prima dell’appendice.
+
+Ecco il codice completo e pronto da salvare come, per esempio, `index.html`:
+
+```html
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -73,16 +78,16 @@
       border: 1px solid #eee;
     }
     img {
-  width: 100%;
-  max-width: 700px;
-  min-width: 300px;
-  height: auto;
-  border-radius: 2px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
+      width: 100%;
+      max-width: 700px;
+      min-width: 300px;
+      height: auto;
+      border-radius: 2px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
     .caption {
       display: block;
       font-size: 14px;
@@ -103,6 +108,25 @@
       background: #000;
       color: white;
       margin-top: 60px;
+    }
+
+    /* Bottone Quiz */
+    .quiz-button {
+      display: inline-block;
+      background: #005826;
+      color: white;
+      padding: 15px 25px;
+      font-weight: 700;
+      font-size: 18px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin: 30px 0;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    .quiz-button:hover {
+      background: #ce1126;
     }
 
     /* Menu Hamburger */
@@ -315,44 +339,13 @@
     <span class="caption">Le drammatiche conseguenze dei conflitti recenti</span>
   </div>
 
+  <!-- Bottone Vai al Quiz -->
+  <a href="quiz.html" class="quiz-button" aria-label="Vai al Quiz sulla Palestina">Vai al Quiz</a>
+
   <div class="legal-box">
     <h2>Appendice: Concetti di Diritto Internazionale</h2>
     <p>Per comprendere il conflitto oggi, è necessario conoscere gli strumenti dell'ONU:</p>
     <ul>
       <li><b>Convenzioni di Ginevra:</b> Regole d'oro per proteggere chi non combatte.</li>
-      <li><b>Corte Penale Internazionale (CPI):</b> Indaga sui crimini individuali di guerra e genocidio.</li>
-      <li><b>Apartheid e Genocidio:</b> Definizioni giuridiche che le organizzazioni internazionali usano per analizzare la segregazione e la distruzione di gruppi etnici.</li>
-      <li><b>Autodeterminazione:</b> Il diritto fondamentale del popolo palestinese di scegliere il proprio destino e la propria indipendenza.</li>
-    </ul>
-  </div>
-
-</main>
-
-<footer>
-  © 2026 Ahnaf – Progetto Educativo sulla Palestina - Creato con cura e rispetto per la storia.
-</footer>
-
-<script>
-  const hamburger = document.getElementById('hamburger');
-  const menu = document.getElementById('menu');
-  const links = menu.querySelectorAll('li');
-
-  // Apri/chiudi menu al clic sull'hamburger
-  hamburger.addEventListener('click', () => {
-    menu.classList.toggle('open');
-  });
-
-  // Funzione per scrollare alla sezione e chiudere il menu
-  links.forEach(link => {
-    link.addEventListener('click', () => {
-      const targetId = link.getAttribute('data-target');
-      const targetElem = document.getElementById(targetId);
-      if(targetElem) {
-        targetElem.scrollIntoView({behavior: 'smooth'});
-      }
-      menu.classList.remove('open');
-    });
-  });
-</script>
-
-
+      <li><b>Corte Penale
+```
