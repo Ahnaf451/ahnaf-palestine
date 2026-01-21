@@ -15,13 +15,15 @@
     header {
       background: #000;
       color: white;
-      padding: 30px 15px;
+      padding: 30px 15px 30px 60px; /* padding-left aumentato per hamburger */
       text-align: center;
       font-weight: 900;
       font-size: 22px;
       letter-spacing: 2px;
       text-transform: uppercase;
       box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+      position: relative;
+      z-index: 900;
     }
     main {
       max-width: 90%;
@@ -71,14 +73,10 @@
       border: 1px solid #eee;
     }
     img {
-      width: 100%;          /* si adatta al contenitore */
-      height: auto;         /* mantiene le proporzioni */
-      max-width: 600px;     /* limite massimo larghezza */
+      max-width: 100%;
+      height: auto;
       border-radius: 2px;
       box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
     }
     .caption {
       display: block;
@@ -101,21 +99,115 @@
       color: white;
       margin-top: 60px;
     }
+
+    /* Menu Hamburger */
+    #hamburger {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      width: 30px;
+      height: 22px;
+      cursor: pointer;
+      z-index: 1001;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    #hamburger span {
+      display: block;
+      height: 4px;
+      background-color: #005826; /* verde */
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* Menu laterale */
+    #menu {
+      position: fixed;
+      top: 0;
+      left: -260px;
+      width: 250px;
+      height: 100%;
+      background: white;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+      padding: 60px 20px 20px 20px;
+      box-sizing: border-box;
+      transition: left 0.3s ease;
+      z-index: 1000;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    #menu.open {
+      left: 0;
+    }
+    #menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    #menu ul li {
+      margin: 15px 0;
+      font-weight: 700;
+      font-size: 18px;
+      border-left: 4px solid transparent;
+      padding-left: 10px;
+      cursor: pointer;
+      color: #005826;
+      transition: border-color 0.3s;
+    }
+    #menu ul li:hover {
+      border-left-color: #ce1126;
+    }
+
+    /* Scroll dolce */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Mobile e piccoli schermi */
     @media (max-width: 600px) {
       main {
         padding: 20px 15px;
         margin: 10px auto;
+        width: 95%;
       }
       h1 { font-size: 28px; }
       h2 { font-size: 20px; }
       p { font-size: 16px; }
-      img {
-        max-width: 100%;     /* su mobile immagini più fluide */
+      #menu {
+        width: 200px;
+        padding-top: 60px;
+      }
+      #menu ul li {
+        font-size: 16px;
+      }
+      header {
+        font-size: 20px;
+        padding-left: 60px;
       }
     }
   </style>
 </head>
 <body>
+
+<!-- Hamburger -->
+<div id="hamburger" aria-label="Menu" role="button" tabindex="0">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<!-- Menu laterale -->
+<nav id="menu" aria-label="Menu capitoli">
+  <ul>
+    <li data-target="origini">1. Le origini: Sionismo e Risoluzione ONU 181</li>
+    <li data-target="guerra1948">2. 1948: La Guerra e la Nakba</li>
+    <li data-target="resistenza">3. La Resistenza: OLP e Al-Fatah</li>
+    <li data-target="guerra1967">4. 1967: La Guerra dei Sei Giorni e la Linea Verde</li>
+    <li data-target="intifade">5. I tentativi di pace e le Intifade</li>
+    <li data-target="murodivisione">6. Il Muro e la divisione tra Fatah e Hamas</li>
+    <li data-target="eventi2023">7. Eventi recenti: Il 7 Ottobre e la crisi attuale</li>
+  </ul>
+</nav>
 
 <header>
   Palestina raccontata da Ahnaf
@@ -130,7 +222,7 @@
 
   <hr>
 
-  <h2>1. Le origini: Sionismo e Risoluzione ONU 181</h2>
+  <h2 id="origini">1. Le origini: Sionismo e Risoluzione ONU 181</h2>
   <h3>Il Sionismo di Theodor Herzl</h3>
   <p>
     Il movimento sionista nasce alla fine del XIX secolo come risposta alle violente persecuzioni (pogrom) subite dagli ebrei in Europa. Theodor Herzl, considerato il padre del sionismo politico, teorizzò la necessità di uno Stato ebraico dove il popolo potesse vivere in sicurezza e autodeterminazione. Nel 1897, il primo Congresso Sionista fissò l'obiettivo di stabilire una patria in Palestina, terra legata alla storia biblica ebraica, all'epoca sotto l'Impero Ottomano.
@@ -145,7 +237,7 @@
     <span class="caption">Mappa del piano di spartizione ONU del 1947</span>
   </div>
 
-  <h2>2. 1948: La Guerra e la Nakba</h2>
+  <h2 id="guerra1948">2. 1948: La Guerra e la Nakba</h2>
   <p>
     Con la fine del mandato britannico e la proclamazione dello Stato di Israele nel maggio 1948, esplose il conflitto armato. Gli eserciti di Egitto, Siria, Giordania, Libano e Iraq intervennero immediatamente. Israele non solo resistette, ma riuscì a occupare una porzione di territorio superiore a quella prevista dal piano ONU.
   </p>
@@ -158,7 +250,7 @@
     <span class="caption">Profughi palestinesi in cammino durante l'esodo del 1948</span>
   </div>
 
-  <h2>3. La Resistenza: OLP e Al-Fatah</h2>
+  <h2 id="resistenza">3. La Resistenza: OLP e Al-Fatah</h2>
   <p>
     Nel 1964 nacque l'Organizzazione per la Liberazione della Palestina (OLP), con l'obiettivo di unificare la lotta palestinese. Sotto la guida di Yasser Arafat, leader del movimento Al-Fatah, l'OLP portò la causa palestinese al centro dell'attenzione mondiale, oscillando tra la resistenza armata e la ricerca di un riconoscimento diplomatico che arrivò ufficialmente negli anni '70.
   </p>
@@ -167,9 +259,9 @@
     <span class="caption">I simboli della resistenza politica e dell'identità nazionale palestinese</span>
   </div>
 
-  <h2>4. 1967: La Guerra dei Sei Giorni e la Linea Verde</h2>
+  <h2 id="guerra1967">4. 1967: La Guerra dei Sei Giorni e la Linea Verde</h2>
   <div class="image-container">
-    <img src="guerra dei 6 giorni.jpg" alt="Guerra 1967">
+    <img src="guerra dei 6 giorni.jpg" alt="Guerra 1967" />
     <span class="caption">Immagine storica del conflitto del 1967</span>
   </div>
 
@@ -185,7 +277,7 @@
     <span class="caption">Esempio di insediamenti israeliani che frammentano il territorio palestinese</span>
   </div>
 
-  <h2>5. I tentativi di pace e le Intifade</h2>
+  <h2 id="intifade">5. I tentativi di pace e le Intifade</h2>
   <p>
     Il conflitto proseguì con la guerra dello Yom Kippur (1973) e i primi storici accordi di Camp David (1978) tra Israele ed Egitto. Tuttavia, la tensione nei territori occupati esplose nel 1987 con la <b>Prima Intifada</b>: una rivolta popolare basata su scioperi e resistenza civile.
   </p>
@@ -197,7 +289,7 @@
     <span class="caption">Manifestazioni e scioperi durante la prima Intifada palestinese</span>
   </div>
 
-  <h2>6. Il Muro e la divisione tra Fatah e Hamas</h2>
+  <h2 id="murodivisione">6. Il Muro e la divisione tra Fatah e Hamas</h2>
   <p>
     Dal 2002, Israele ha costruito un'imponente barriera di separazione in Cisgiordania. Sebbene giustificata come misura di sicurezza, la barriera penetra profondamente nei territori palestinesi, isolando città e campi agricoli.
   </p>
@@ -209,7 +301,7 @@
     <span class="caption">Il muro di cemento che separa e isola le comunità in Cisgiordania</span>
   </div>
 
-  <h2>7. Eventi recenti: Il 7 Ottobre e la crisi attuale</h2>
+  <h2 id="eventi2023">7. Eventi recenti: Il 7 Ottobre e la crisi attuale</h2>
   <p>
     Il 7 ottobre 2023 segna l'inizio di una delle fasi più buie del conflitto. L'attacco di Hamas in territorio israeliano ha scatenato una risposta militare massiccia sulla Striscia di Gaza, portando a una crisi umanitaria senza precedenti, con decine di migliaia di vittime civili e la distruzione di gran parte delle infrastrutture vitali. L'ONU e le corti internazionali sono oggi chiamate a giudicare l'operato delle parti, mentre si discute drammaticamente di annessione della Cisgiordania e del destino dei civili.
   </p>
@@ -235,5 +327,8 @@
   © 2026 Ahnaf – Progetto Educativo sulla Palestina - Creato con cura e rispetto per la storia.
 </footer>
 
-</body>
-</html>
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const menu = document.getElementById('menu');
+  const links = menu.querySelectorAll('li');
+
