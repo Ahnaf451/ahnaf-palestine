@@ -10,95 +10,104 @@
       background: #f4f4f4;
       margin: 0; padding: 0;
       color: #333;
-      line-height: 1.8;
+      line-height: 1.6;
     }
     header {
       background: #000;
       color: white;
-      padding: 50px 20px;
+      padding: 30px 15px; /* Ridotto per mobile */
       text-align: center;
       font-weight: 900;
-      font-size: 28px;
-      letter-spacing: 3px;
+      font-size: 22px; /* Ridotto per mobile */
+      letter-spacing: 2px;
       text-transform: uppercase;
       box-shadow: 0 5px 15px rgba(0,0,0,0.5);
     }
     main {
-      max-width: 1300px;
-      margin: 40px auto;
+      max-width: 90%; /* Si adatta alla larghezza dello schermo */
+      width: 1200px;
+      margin: 20px auto;
       background: white;
-      padding: 60px 80px;
+      padding: 30px; /* Ridotto per non soffocare il testo su mobile */
       box-shadow: 0 0 30px rgba(0,0,0,0.1);
+      box-sizing: border-box; /* Evita che il padding faccia uscire il contenuto */
     }
     h1 {
       color: #000;
-      font-size: 42px;
+      font-size: 32px; /* Più piccolo per il telefono */
       font-weight: 900;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       border-bottom: 5px solid #005826;
       padding-bottom: 10px;
     }
     h2 {
       color: #000;
-      font-size: 28px;
+      font-size: 24px;
       font-weight: 800;
-      margin-top: 60px;
-      margin-bottom: 25px;
+      margin-top: 40px;
+      margin-bottom: 20px;
       border-left: 8px solid #ce1126;
-      padding-left: 20px;
+      padding-left: 15px;
       text-transform: uppercase;
     }
     h3 {
       color: #000;
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 700;
-      margin-top: 40px;
+      margin-top: 30px;
       background: #f9f9f9;
       padding: 10px;
-      border-radius: 4px;
     }
     p {
-      margin-bottom: 25px;
-      font-size: 19px;
-      text-align: justify;
+      margin-bottom: 20px;
+      font-size: 17px; /* Dimensione ideale per leggere da mobile */
+      text-align: left; /* Meglio allineato a sinistra per il mobile */
     }
     .image-container {
       text-align: center;
-      margin: 40px 0;
+      margin: 30px 0;
       background: #fdfdfd;
-      padding: 20px;
+      padding: 10px;
       border: 1px solid #eee;
     }
-    /* Tutte le immagini avranno ora la stessa dimensione standard */
+    /* Tutte le immagini si adatteranno alla larghezza dello schermo */
     img {
-      width: 100%;
-      max-width: 900px; /* Dimensione ottimale per uniformare tutto */
+      max-width: 100%;
       height: auto;
       border-radius: 2px;
       box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-      display: block;
-      margin: 0 auto;
     }
     .caption {
       display: block;
-      font-size: 15px;
+      font-size: 14px;
       color: #555;
-      margin-top: 15px;
+      margin-top: 10px;
       font-style: italic;
     }
     .legal-box {
       background: #f0f0f0;
-      padding: 30px;
+      padding: 20px;
       border-radius: 8px;
       border-top: 5px solid #000;
-      margin-top: 50px;
+      margin-top: 40px;
     }
     footer {
       text-align: center;
-      padding: 40px;
+      padding: 30px;
       background: #000;
       color: white;
-      margin-top: 80px;
+      margin-top: 60px;
+    }
+
+    /* Regole specifiche per schermi molto piccoli (Smartphone) */
+    @media (max-width: 600px) {
+      main {
+        padding: 20px 15px;
+        margin: 10px auto;
+      }
+      h1 { font-size: 28px; }
+      h2 { font-size: 20px; }
+      p { font-size: 16px; }
     }
   </style>
 </head>
