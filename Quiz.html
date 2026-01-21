@@ -3,180 +3,245 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Quiz Palestina - Ahnaf</title>
+  <title>Quiz sul conflitto israelo-palestinese</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #f4f4f4;
       color: #333;
-      padding: 20px;
       max-width: 700px;
-      margin: 0 auto;
+      margin: 40px auto;
+      padding: 20px;
+      box-sizing: border-box;
+      border-radius: 8px;
+      background: white;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
     }
-    h1 {
-      color: #005826;
+    h2 {
       text-align: center;
-      margin-bottom: 20px;
+      color: #005826;
+      text-transform: uppercase;
+      border-bottom: 4px solid #ce1126;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
     }
     .question {
-      margin-bottom: 15px;
+      margin-bottom: 25px;
+    }
+    p {
       font-weight: 700;
+      font-size: 18px;
     }
-    .answers label {
+    label {
       display: block;
-      margin-bottom: 8px;
+      margin-top: 8px;
       cursor: pointer;
-      padding: 6px 12px;
-      border-radius: 6px;
-      border: 2px solid transparent;
-      transition: background-color 0.3s, border-color 0.3s;
+      font-size: 16px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
     }
-    input[type="radio"]:checked + label {
-      border-color: #005826;
-      background-color: #e0f0df;
+    label.correct {
+      background-color: #d4edda; /* verde chiaro */
+      border: 2px solid #28a745; /* verde */
+      color: #155724;
     }
-    .correct {
-      background-color: #b7f1b7 !important;
-      border-color: #0b8a0b !important;
+    label.wrong {
+      background-color: #f8d7da; /* rosso chiaro */
+      border: 2px solid #dc3545; /* rosso */
+      color: #721c24;
     }
-    .incorrect {
-      background-color: #f1b7b7 !important;
-      border-color: #8a0b0b !important;
+    input[type="radio"] {
+      margin-right: 8px;
+      cursor: pointer;
     }
     button {
       display: block;
-      margin: 30px auto;
-      background-color: #005826;
+      margin: 30px auto 0;
+      background: #005826;
       color: white;
-      font-size: 18px;
-      padding: 12px 24px;
       border: none;
-      border-radius: 8px;
+      padding: 12px 25px;
+      font-size: 18px;
+      border-radius: 5px;
       cursor: pointer;
-      transition: background-color 0.3s;
+      transition: background-color 0.3s ease;
     }
     button:hover {
-      background-color: #00421a;
+      background: #003d19;
     }
-    .result {
-      font-size: 20px;
+    #result {
+      margin-top: 30px;
       font-weight: 700;
+      font-size: 20px;
       text-align: center;
-      margin-top: 20px;
+      color: #333;
     }
   </style>
 </head>
 <body>
 
-  <h1>Quiz Palestina</h1>
-
-  <form id="quiz-form">
-
-    <div class="question" id="q1">
-      1. Quando è stata proposta la Risoluzione ONU 181?
-      <div class="answers">
-        <input type="radio" name="q1" id="q1a" value="a" />
-        <label for="q1a">a) 1945</label>
-        <input type="radio" name="q1" id="q1b" value="b" />
-        <label for="q1b">b) 1947</label>
-        <input type="radio" name="q1" id="q1c" value="c" />
-        <label for="q1c">c) 1950</label>
-        <input type="radio" name="q1" id="q1d" value="d" />
-        <label for="q1d">d) 1967</label>
-      </div>
+  <h2>Quiz sul conflitto israelo-palestinese</h2>
+  <form id="quizForm">
+    <div class="question">
+      <p>1. Chi è considerato il padre del sionismo politico?</p>
+      <label><input type="radio" name="q1" value="a" /> a) David Ben Gurion</label>
+      <label><input type="radio" name="q1" value="b" /> b) Yasser Arafat</label>
+      <label><input type="radio" name="q1" value="c" /> c) Theodor Herzl</label>
+      <label><input type="radio" name="q1" value="d" /> d) Golda Meir</label>
     </div>
 
-    <div class="question" id="q2">
-      2. Chi fu il padre del Sionismo politico?
-      <div class="answers">
-        <input type="radio" name="q2" id="q2a" value="a" />
-        <label for="q2a">a) David Ben-Gurion</label>
-        <input type="radio" name="q2" id="q2b" value="b" />
-        <label for="q2b">b) Theodor Herzl</label>
-        <input type="radio" name="q2" id="q2c" value="c" />
-        <label for="q2c">c) Yasser Arafat</label>
-        <input type="radio" name="q2" id="q2d" value="d" />
-        <label for="q2d">d) Golda Meir</label>
-      </div>
+    <div class="question">
+      <p>2. Cosa prevedeva la Risoluzione ONU 181 del 1947?</p>
+      <label><input type="radio" name="q2" value="a" /> a) La creazione di uno Stato unico in Palestina</label>
+      <label><input type="radio" name="q2" value="b" /> b) La spartizione della Palestina in due Stati, uno arabo e uno ebraico</label>
+      <label><input type="radio" name="q2" value="c" /> c) Il ritiro delle truppe britanniche senza spartizione</label>
+      <label><input type="radio" name="q2" value="d" /> d) La creazione di uno Stato palestinese solo</label>
     </div>
 
-    <div class="question" id="q3">
-      3. Quale evento palestinese è chiamato "Nakba"?
-      <div class="answers">
-        <input type="radio" name="q3" id="q3a" value="a" />
-        <label for="q3a">a) La creazione dello Stato di Israele</label>
-        <input type="radio" name="q3" id="q3b" value="b" />
-        <label for="q3b">b) L'espulsione e fuga dei palestinesi nel 1948</label>
-        <input type="radio" name="q3" id="q3c" value="c" />
-        <label for="q3c">c) La Guerra dei Sei Giorni</label>
-        <input type="radio" name="q3" id="q3d" value="d" />
-        <label for="q3d">d) Gli Accordi di Oslo</label>
-      </div>
+    <div class="question">
+      <p>3. Qual è il significato della parola "Nakba" per i palestinesi?</p>
+      <label><input type="radio" name="q3" value="a" /> a) Vittoria</label>
+      <label><input type="radio" name="q3" value="b" /> b) Catastrofe</label>
+      <label><input type="radio" name="q3" value="c" /> c) Pace</label>
+      <label><input type="radio" name="q3" value="d" /> d) Indipendenza</label>
     </div>
 
-    <div class="question" id="q4">
-      4. Quando iniziò la Prima Intifada?
-      <div class="answers">
-        <input type="radio" name="q4" id="q4a" value="a" />
-        <label for="q4a">a) 1987</label>
-        <input type="radio" name="q4" id="q4b" value="b" />
-        <label for="q4b">b) 1993</label>
-        <input type="radio" name="q4" id="q4c" value="c" />
-        <label for="q4c">c) 2000</label>
-        <input type="radio" name="q4" id="q4d" value="d" />
-        <label for="q4d">d) 1973</label>
-      </div>
+    <div class="question">
+      <p>4. Quale organizzazione nacque nel 1964 per unificare la lotta palestinese?</p>
+      <label><input type="radio" name="q4" value="a" /> a) Hamas</label>
+      <label><input type="radio" name="q4" value="b" /> b) OLP (Organizzazione per la Liberazione della Palestina)</label>
+      <label><input type="radio" name="q4" value="c" /> c) Al-Qaeda</label>
+      <label><input type="radio" name="q4" value="d" /> d) Hezbollah</label>
     </div>
 
-    <button type="submit">Invia Risposte</button>
+    <div class="question">
+      <p>5. Cosa fu la "Linea Verde"?</p>
+      <label><input type="radio" name="q5" value="a" /> a) Il confine dopo la guerra del 1948 tra Israele e i paesi arabi</label>
+      <label><input type="radio" name="q5" value="b" /> b) Un trattato di pace firmato nel 1967</label>
+      <label><input type="radio" name="q5" value="c" /> c) La barriera costruita da Israele in Cisgiordania</label>
+      <label><input type="radio" name="q5" value="d" /> d) Il percorso di una marcia pacifica palestinese</label>
+    </div>
 
+    <div class="question">
+      <p>6. Cosa caratterizzò la Prima Intifada del 1987?</p>
+      <label><input type="radio" name="q6" value="a" /> a) Una guerra convenzionale con eserciti regolari</label>
+      <label><input type="radio" name="q6" value="b" /> b) Scioperi e resistenza civile popolare</label>
+      <label><input type="radio" name="q6" value="c" /> c) Attacchi suicidi e terrorismo</label>
+      <label><input type="radio" name="q6" value="d" /> d) Un trattato di pace tra Israele e Palestina</label>
+    </div>
+
+    <div class="question">
+      <p>7. Quando furono firmati gli Accordi di Oslo?</p>
+      <label><input type="radio" name="q7" value="a" /> a) 1948</label>
+      <label><input type="radio" name="q7" value="b" /> b) 1967</label>
+      <label><input type="radio" name="q7" value="c" /> c) 1993</label>
+      <label><input type="radio" name="q7" value="d" /> d) 2005</label>
+    </div>
+
+    <div class="question">
+      <p>8. Quale delle seguenti affermazioni è vera riguardo al muro costruito da Israele in Cisgiordania?</p>
+      <label><input type="radio" name="q8" value="a" /> a) È stato costruito dopo la Prima Intifada per motivi di sicurezza</label>
+      <label><input type="radio" name="q8" value="b" /> b) È stato costruito per separare Israele dal Libano</label>
+      <label><input type="radio" name="q8" value="c" /> c) È una linea di confine ufficiale riconosciuta dall’ONU</label>
+      <label><input type="radio" name="q8" value="d" /> d) È stato demolito nel 2002</label>
+    </div>
+
+    <div class="question">
+      <p>9. Qual è il ruolo politico di Hamas nella Palestina?</p>
+      <label><input type="radio" name="q9" value="a" /> a) Controlla la Cisgiordania</label>
+      <label><input type="radio" name="q9" value="b" /> b) È un movimento pacifista senza potere politico</label>
+      <label><input type="radio" name="q9" value="c" /> c) Controlla la Striscia di Gaza dal 2007</label>
+      <label><input type="radio" name="q9" value="d" /> d) È un'organizzazione internazionale di aiuti umanitari</label>
+    </div>
+
+    <div class="question">
+      <p>10. Cosa è successo il 7 ottobre 2023?</p>
+      <label><input type="radio" name="q10" value="a" /> a) Israele si è ritirato dalla Cisgiordania</label>
+      <label><input type="radio" name="q10" value="b" /> b) L’ONU ha riconosciuto ufficialmente lo Stato palestinese</label>
+      <label><input type="radio" name="q10" value="c" /> c) Un attacco di Hamas in territorio israeliano ha scatenato una nuova fase di conflitto</label>
+      <label><input type="radio" name="q10" value="d" /> d) Gli Accordi di Camp David sono stati firmati</label>
+    </div>
+
+    <button type="button" id="submitQuiz">Verifica Risposte</button>
   </form>
 
-  <div class="result" id="result"></div>
+  <div id="result"></div>
 
   <script>
-    const answers = {
-      q1: 'b',
+    const correctAnswers = {
+      q1: 'c',
       q2: 'b',
       q3: 'b',
-      q4: 'a'
+      q4: 'b',
+      q5: 'a',
+      q6: 'b',
+      q7: 'c',
+      q8: 'a',
+      q9: 'c',
+      q10: 'c'
     };
 
-    const form = document.getElementById('quiz-form');
-    const resultDiv = document.getElementById('result');
+    document.getElementById('submitQuiz').addEventListener('click', () => {
+      let score = 0;
+      let total = Object.keys(correctAnswers).length;
+      let unanswered = 0;
 
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
+      // Rimuove le classi di evidenziazione da un eventuale tentativo precedente
+      const labels = document.querySelectorAll('label');
+      labels.forEach(label => {
+        label.classList.remove('correct', 'wrong');
+      });
 
-      let correctCount = 0;
-      let total = Object.keys(answers).length;
+      for(let i = 1; i <= total; i++) {
+        const q = 'q' + i;
+        const radios = document.getElementsByName(q);
+        let answered = false;
+        let userAnswer = null;
 
-      // Per ogni domanda
-      for (const [q, correctAnswer] of Object.entries(answers)) {
-        const selected = form[q].value;
-
-        // Se non selezionata, niente controllo (puoi modificare se vuoi)
-        if (!selected) continue;
-
-        // Colora risposte giuste e sbagliate
-        const labels = form[q].parentNode.querySelectorAll('label');
-        labels.forEach(label => label.classList.remove('correct', 'incorrect'));
-
-        labels.forEach(label => {
-          if(label.htmlFor === q + correctAnswer) {
-            label.classList.add('correct');
+        for(let radio of radios) {
+          if(radio.checked) {
+            answered = true;
+            userAnswer = radio.value;
+            break;
           }
-          if(label.htmlFor === q + selected && selected !== correctAnswer) {
-            label.classList.add('incorrect');
-          }
-        });
+        }
 
-        if (selected === correctAnswer) {
-          correctCount++;
+        if(!answered) {
+          unanswered++;
+          continue;
+        }
+
+        if(userAnswer === correctAnswers[q]) {
+          score++;
+          // Evidenzia in verde la risposta scelta
+          radios.forEach(radio => {
+            if(radio.value === userAnswer) {
+              radio.parentElement.classList.add('correct');
+            }
+          });
+        } else {
+          // Evidenzia in rosso la risposta sbagliata scelta
+          radios.forEach(radio => {
+            if(radio.value === userAnswer) {
+              radio.parentElement.classList.add('wrong');
+            }
+            // Evidenzia in verde la risposta corretta anche se non scelta
+            if(radio.value === correctAnswers[q]) {
+              radio.parentElement.classList.add('correct');
+            }
+          });
         }
       }
 
-      resultDiv.textContent = `Hai risposto correttamente a ${correctCount} su ${total} domande.`;
+      const wrong = total - score;
+      let resultText = `Hai risposto correttamente a ${score} su ${total} domande.`;
+      if(unanswered > 0) {
+        resultText += ` Hai lasciato ${unanswered} domanda${unanswered > 1 ? 'e' : ''} senza risposta.`;
+      }
+      resultText += ` Hai sbagliato ${wrong} domanda${wrong !== 1 ? 'e' : ''}.`;
+
+      document.getElementById('result').textContent = resultText;
     });
   </script>
 
