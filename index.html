@@ -69,16 +69,15 @@
       padding: 20px;
       border: 1px solid #eee;
     }
+    /* Tutte le immagini avranno ora la stessa dimensione standard */
     img {
-      max-width: 100%;
+      width: 100%;
+      max-width: 900px; /* Dimensione ottimale per uniformare tutto */
       height: auto;
       border-radius: 2px;
       box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-    }
-    /* Classe speciale per rendere la foto Intifada più grande */
-    .img-large {
-      width: 100%; /* Occupa tutta la larghezza disponibile del contenitore */
-      max-width: 1200px; 
+      display: block;
+      margin: 0 auto;
     }
     .caption {
       display: block;
@@ -181,7 +180,7 @@
     Questa spinta portò agli <b>Accordi di Oslo (1993)</b>, dove Arafat e Rabin si strinsero la mano, promettendo la creazione di un'Autorità Nazionale Palestinese (ANP) e una soluzione a "due Stati". Ma le speranze morirono presto: l'assassinio di Rabin da parte di un estremista ebreo nel 1995 e l'aumento delle colonie portarono alla <b>Seconda Intifada (2000)</b>, molto più violenta e segnata da attacchi suicidi e dure repressioni.
   </p>
   <div class="image-container">
-    <img src="Intifada_in_Gaza_Strip_(FL45956268).jpg" alt="Sciopero di massa" class="img-large" />
+    <img src="Intifada_in_Gaza_Strip_(FL45956268).jpg" alt="Sciopero di massa" />
     <span class="caption">Manifestazioni e scioperi durante la prima Intifada palestinese</span>
   </div>
 
