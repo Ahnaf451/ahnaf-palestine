@@ -15,26 +15,26 @@
     header {
       background: #000;
       color: white;
-      padding: 30px 15px; /* Ridotto per mobile */
+      padding: 30px 15px;
       text-align: center;
       font-weight: 900;
-      font-size: 22px; /* Ridotto per mobile */
+      font-size: 22px;
       letter-spacing: 2px;
       text-transform: uppercase;
       box-shadow: 0 5px 15px rgba(0,0,0,0.5);
     }
     main {
-      max-width: 90%; /* Si adatta alla larghezza dello schermo */
+      max-width: 90%;
       width: 1200px;
       margin: 20px auto;
       background: white;
-      padding: 30px; /* Ridotto per non soffocare il testo su mobile */
+      padding: 30px;
       box-shadow: 0 0 30px rgba(0,0,0,0.1);
-      box-sizing: border-box; /* Evita che il padding faccia uscire il contenuto */
+      box-sizing: border-box;
     }
     h1 {
       color: #000;
-      font-size: 32px; /* Più piccolo per il telefono */
+      font-size: 32px;
       font-weight: 900;
       margin-bottom: 20px;
       border-bottom: 5px solid #005826;
@@ -60,8 +60,8 @@
     }
     p {
       margin-bottom: 20px;
-      font-size: 17px; /* Dimensione ideale per leggere da mobile */
-      text-align: left; /* Meglio allineato a sinistra per il mobile */
+      font-size: 17px;
+      text-align: left;
     }
     .image-container {
       text-align: center;
@@ -70,10 +70,11 @@
       padding: 10px;
       border: 1px solid #eee;
     }
-    /* Tutte le immagini si adatteranno alla larghezza dello schermo */
     img {
-      max-width: 100%;
+      width: 100%;
+      max-height: 300px;
       height: auto;
+      object-fit: cover;
       border-radius: 2px;
       box-shadow: 0 6px 15px rgba(0,0,0,0.2);
     }
@@ -98,8 +99,6 @@
       color: white;
       margin-top: 60px;
     }
-
-    /* Regole specifiche per schermi molto piccoli (Smartphone) */
     @media (max-width: 600px) {
       main {
         padding: 20px 15px;
