@@ -346,6 +346,21 @@
     <li><b>Apartheid e Genocidio:</b> Definizioni giuridiche che le organizzazioni internazionali usano per analizzare la segregazione e la distruzione di gruppi etnici.</li>
     <li><b>Autodeterminazione:</b> Il diritto fondamentale del popolo palestinese di scegliere il proprio destino e la propria indipendenza.</li>
   </ul>
-</div>
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const menu = document.getElementById('menu');
 
+  hamburger.addEventListener('click', () => {
+    menu.classList.toggle('open');
+  });
+
+  hamburger.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      menu.classList.toggle('open');
+    }
+  });
+</script>
+</body>
+</html>
 
