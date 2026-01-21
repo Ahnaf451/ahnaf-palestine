@@ -2,14 +2,13 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Palestina raccontata da Ahnaf</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #f4f4f4;
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       color: #333;
       line-height: 1.6;
     }
@@ -107,7 +106,7 @@
     }
 
     /* Bottone Quiz */
-    .Quiz-button {
+    .quiz-button {
       display: inline-block;
       background: #005826;
       color: white;
@@ -121,7 +120,7 @@
       text-decoration: none;
       transition: background-color 0.3s ease;
     }
-    .Quiz-button:hover {
+    .quiz-button:hover {
       background: #ce1126;
     }
 
@@ -175,32 +174,17 @@
       font-size: 18px;
       border-left: 4px solid transparent;
       padding-left: 10px;
-    }
-    #menu ul li a {
-      color: #005826;
-      text-decoration: none;
       cursor: pointer;
+      color: #005826;
       transition: border-color 0.3s;
-      display: block;
-      padding-left: 6px;
     }
-    #menu ul li a:hover {
-      border-left: 4px solid #ce1126;
+    #menu ul li:hover {
+      border-left-color: #ce1126;
     }
 
     /* Scroll dolce */
     html {
       scroll-behavior: smooth;
-    }
-
-    /* Overlay per chiudere il menu */
-    #overlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.3);
-      z-index: 999;
     }
 
     /* Mobile e piccoli schermi */
@@ -239,18 +223,15 @@
 <!-- Menu laterale -->
 <nav id="menu" aria-label="Menu capitoli">
   <ul>
-    <li><a href="#origini">1. Le origini: Sionismo e Risoluzione ONU 181</a></li>
-    <li><a href="#guerra1948">2. 1948: La Guerra e la Nakba</a></li>
-    <li><a href="#resistenza">3. La Resistenza: OLP e Al-Fatah</a></li>
-    <li><a href="#guerra1967">4. 1967: La Guerra dei Sei Giorni e la Linea Verde</a></li>
-    <li><a href="#intifade">5. I tentativi di pace e le Intifade</a></li>
-    <li><a href="#murodivisione">6. Il Muro e la divisione tra Fatah e Hamas</a></li>
-    <li><a href="#eventi2023">7. Eventi recenti: Il 7 Ottobre e la crisi attuale</a></li>
+    <li data-target="origini">1. Le origini: Sionismo e Risoluzione ONU 181</li>
+    <li data-target="guerra1948">2. 1948: La Guerra e la Nakba</li>
+    <li data-target="resistenza">3. La Resistenza: OLP e Al-Fatah</li>
+    <li data-target="guerra1967">4. 1967: La Guerra dei Sei Giorni e la Linea Verde</li>
+    <li data-target="intifade">5. I tentativi di pace e le Intifade</li>
+    <li data-target="murodivisione">6. Il Muro e la divisione tra Fatah e Hamas</li>
+    <li data-target="eventi2023">7. Eventi recenti: Il 7 Ottobre e la crisi attuale</li>
   </ul>
 </nav>
-
-<!-- Overlay -->
-<div id="overlay"></div>
 
 <header>
   Palestina raccontata da Ahnaf
@@ -276,7 +257,7 @@
     Dopo gli orrori della Seconda Guerra Mondiale, la pressione per la creazione di uno Stato ebraico aumentò. Nel 1947, l'ONU propose il Piano di Spartizione: dividere la terra in due Stati indipendenti, uno arabo e uno ebraico, con Gerusalemme posta sotto un regime internazionale (Corpus Separatum). Sebbene la leadership ebraica accettò, il mondo arabo rifiutò la proposta, ritenendo ingiusto assegnare oltre il 50% del territorio a una minoranza che possedeva solo una frazione della terra.
   </p>
   <div class="image-container">
-    <img src="risoluzione_onu_181.gif" alt="Risoluzione ONU 181" />
+    <img src="risoluzione onu 181.gif" alt="Risoluzione ONU 181" />
     <span class="caption">Mappa del piano di spartizione ONU del 1947</span>
   </div>
 
@@ -304,7 +285,7 @@
 
   <h2 id="guerra1967">4. 1967: La Guerra dei Sei Giorni e la Linea Verde</h2>
   <div class="image-container">
-    <img src="guerra_dei_6_giorni.jpg" alt="Guerra 1967" />
+    <img src="guerra dei 6 giorni.jpg" alt="Guerra 1967" />
     <span class="caption">Immagine storica del conflitto del 1967</span>
   </div>
 
@@ -316,7 +297,7 @@
     La "Linea Verde" era il confine stabilito dopo la guerra del 1948. Superandola nel 1967, Israele iniziò una politica di insediamenti civili (colonie) nei territori occupati, mossa considerata illegale dal diritto internazionale e dalla risoluzione ONU 242, che chiedeva il ritiro dai territori in cambio di una pace duratura.
   </p>
   <div class="image-container">
-    <img src="palestina_soldati_insediamenti_israeliani.jpg" alt="Insediamenti israeliani" />
+    <img src="palestina-soldati-insediamente israeliani.jpg" alt="Insediamenti israeliani" />
     <span class="caption">Esempio di insediamenti israeliani che frammentano il territorio palestinese</span>
   </div>
 
@@ -328,7 +309,7 @@
     Questa spinta portò agli <b>Accordi di Oslo (1993)</b>, dove Arafat e Rabin si strinsero la mano, promettendo la creazione di un'Autorità Nazionale Palestinese (ANP) e una soluzione a "due Stati". Ma le speranze morirono presto: l'assassinio di Rabin da parte di un estremista ebreo nel 1995 e l'aumento delle colonie portarono alla <b>Seconda Intifada (2000)</b>, molto più violenta e segnata da attacchi suicidi e dure repressioni.
   </p>
   <div class="image-container">
-    <img src="Intifada_in_Gaza_Strip_FL45956268.jpg" alt="Sciopero di massa" />
+    <img src="Intifada_in_Gaza_Strip_(FL45956268).jpg" alt="Sciopero di massa" />
     <span class="caption">Manifestazioni e scioperi durante la prima Intifada palestinese</span>
   </div>
 
@@ -349,25 +330,22 @@
     Il 7 ottobre 2023 segna l'inizio di una delle fasi più buie del conflitto. L'attacco di Hamas in territorio israeliano ha scatenato una risposta militare massiccia sulla Striscia di Gaza, portando a una crisi umanitaria senza precedenti, con decine di migliaia di vittime civili e la distruzione di gran parte delle infrastrutture vitali. L'ONU e le corti internazionali sono oggi chiamate a giudicare l'operato delle parti, mentre si discute drammaticamente di annessione della Cisgiordania e del destino dei civili.
   </p>
   <div class="image-container">
-    <img src="tutto_distrutto.avif" alt="Distruzione recente" />
+    <img src="tutto distrutto.avif" alt="Distruzione recente" />
     <span class="caption">Le drammatiche conseguenze dei conflitti recenti</span>
-    <!-- altre sezioni... -->
-
-  <div class="legal-box">
-    <h2>Appendice: Concetti di Diritto Internazionale</h2>
-    <p>Per comprendere il conflitto oggi, è necessario conoscere gli strumenti dell'ONU:</p>
-    <ul>
-      <li><b>Convenzioni di Ginevra:</b> Regole d'oro per proteggere chi non combatte.</li>
-      <li><b>Corte Penale Internazionale (CPI):</b> Indaga sui crimini individuali di guerra e genocidio.</li>
-      <li><b>Apartheid e Genocidio:</b> Definizioni giuridiche che le organizzazioni internazionali usano per analizzare la segregazione e la distruzione di gruppi etnici.</li>
-      <li><b>Autodeterminazione:</b> Il diritto fondamentale del popolo palestinese di scegliere il proprio destino e la propria indipendenza.</li>
-    </ul>
   </div>
 
   <!-- Bottone Vai al Quiz -->
   <a href="Quiz.html" class="Quiz-button" aria-label="Vai al Quiz sulla Palestina">Vai al Quiz</a>
 
-</main>
+  <div class="legal-box">
+  <h2>Appendice: Concetti di Diritto Internazionale</h2>
+  <p>Per comprendere il conflitto oggi, è necessario conoscere gli strumenti dell'ONU:</p>
+  <ul>
+    <li><b>Convenzioni di Ginevra:</b> Regole d'oro per proteggere chi non combatte.</li>
+    <li><b>Corte Penale Internazionale (CPI):</b> Indaga sui crimini individuali di guerra e genocidio.</li>
+    <li><b>Apartheid e Genocidio:</b> Definizioni giuridiche che le organizzazioni internazionali usano per analizzare la segregazione e la distruzione di gruppi etnici.</li>
+    <li><b>Autodeterminazione:</b> Il diritto fondamentale del popolo palestinese di scegliere il proprio destino e la propria indipendenza.</li>
+  </ul>
+</div>
 
 
-  <!-- Bottone Vai al
