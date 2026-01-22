@@ -349,7 +349,9 @@
 <script>
   const hamburger = document.getElementById('hamburger');
   const menu = document.getElementById('menu');
+  const menuItems = document.querySelectorAll('#menu li');
 
+  // Apri / chiudi menu
   hamburger.addEventListener('click', () => {
     menu.classList.toggle('open');
   });
@@ -360,21 +362,21 @@
       menu.classList.toggle('open');
     }
   });
-<script>
-  const menuItems = document.querySelectorAll('#menu li');
 
+  // Scroll ai capitoli
   menuItems.forEach(item => {
     item.addEventListener('click', () => {
       const targetId = item.getAttribute('data-target');
-      const targetElement = document.getElementById(targetId);
+      const target = document.getElementById(targetId);
 
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
-        document.getElementById('menu').classList.remove('open');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+        menu.classList.remove('open');
       }
     });
   });
 </script>
 </body>
 </html>
+
 
