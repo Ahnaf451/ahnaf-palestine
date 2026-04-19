@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Attualità</title>
+  <style>
+    :root {
+      --rosso-card: #c81f32;
+      --rosso-card-hover: #a61728;
+      --sfondo: #f4f4f4;
+      --testo: #222;
+      --bianco: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--sfondo);
+      color: var(--testo);
+    }
+
+    main {
+      width: min(1200px, calc(100% - 32px));
+      margin: 28px auto;
+      padding: 32px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 24px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: #ce1126;
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      transition: background-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .back-link:hover {
+      background: #9f0d1d;
+      transform: translateY(-2px);
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 34px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 5px solid #005826;
+      padding-bottom: 10px;
+    }
+
+    .intro {
+      margin: 0 0 28px;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .news-card {
+      border: none;
+      width: 100%;
+      background: var(--rosso-card);
+      color: var(--bianco);
+      padding: 22px 20px;
+      border-radius: 14px;
+      text-align: left;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.4;
+      box-shadow: 0 12px 24px rgba(200, 31, 50, 0.22);
+      transition: background-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .news-card:hover {
+      background: var(--rosso-card-hover);
+      transform: translateY(-3px);
+    }
+
+    .news-card:focus-visible {
+      outline: 3px solid #111;
+      outline-offset: 4px;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 2000;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-box {
+      width: min(760px, 100%);
+      background: #fff;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+      position: relative;
+      animation: fadeUp 0.25s ease;
+    }
+
+    .modal-title {
+      margin: 0 0 16px;
+      font-size: 28px;
+      line-height: 1.25;
+      color: #111;
+    }
+
+    .modal-description {
+      margin: 0 0 20px;
+      font-size: 17px;
+      line-height: 1.7;
+      color: #444;
+    }
+
+    .modal-source {
+      display: inline-block;
+      color: #ce1126;
+      font-weight: 700;
+      text-decoration: none;
+      word-break: break-word;
+    }
+
+    .modal-source:hover {
+      text-decoration: underline;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      border: none;
+      background: #f1f1f1;
+      color: #111;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .modal-close:hover {
+      background: #e2e2e2;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      main {
+        width: calc(100% - 20px);
+        margin: 10px auto;
+        padding: 20px 14px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      .intro {
+        font-size: 16px;
+      }
+
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .news-card {
+        font-size: 17px;
+      }
+
+      .modal-box {
+        padding: 22px;
+      }
+
+      .modal-title {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="index.html">Torna alla pagina principale</a>
+
+    <h1>Attualità</h1>
+    <p class="intro">
+      Una raccolta di approfondimenti sull'attualità del conflitto israelo-palestinese. Clicca su un rettangolo rosso per aprire il contenuto completo con descrizione e fonte originale.
+    </p>
+
+    <section class="news-grid" id="newsGrid" aria-label="Notizie di attualità"></section>
+  </main>
+
+  <div class="modal-overlay" id="modalOverlay" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Chiudi">×</button>
+      <h2 class="modal-title" id="modalTitle"></h2>
+      <p class="modal-description" id="modalDescription"></p>
+      <a class="modal-source" id="modalSource" href="#" target="_blank" rel="noopener noreferrer"></a>
+    </div>
+  </div>
+
+  <script>
+    const newsItems = [
+      {
+        title: "La situazione umanitaria a Gaza e in Cisgiordania nel 2026",
+        description: "Un approfondimento sulle condizioni di vita della popolazione civile, con focus su carenza di beni essenziali e impatto della guerra sulle infrastrutture.",
+        sourceLabel: "Fonte: Internazionale — internazionale.it",
+        sourceUrl: "https://www.internazionale.it"
+      },
+      {
+        title: "Le tregue fragili: lo stato dei negoziati internazionali",
+        description: "Analisi dei tentativi di mediazione internazionale e delle difficoltà nel raggiungere un accordo stabile.",
+        sourceLabel: "Fonte: ISPI — ispionline.it",
+        sourceUrl: "https://www.ispionline.it"
+      },
+      {
+        title: "Reportage: La vita quotidiana sotto la minaccia dei razzi",
+        description: "Video-reportage che mostra la vita quotidiana delle famiglie israeliane e palestinesi sotto il conflitto.",
+        sourceLabel: "Fonte: Sky TG24 — tg24.sky.it",
+        sourceUrl: "https://tg24.sky.it"
+      },
+      {
+        title: "L'espansione degli insediamenti e la questione del territorio",
+        description: "Spiegazione semplice degli insediamenti in Cisgiordania e del loro impatto politico e territoriale.",
+        sourceLabel: "Fonte: BBC News — bbc.com/news",
+        sourceUrl: "https://www.bbc.com/news"
+      },
+      {
+        title: "Il ruolo delle Nazioni Unite e dell'UNRWA oggi",
+        description: "Approfondimento sul ruolo delle Nazioni Unite nell’assistenza ai rifugiati palestinesi e le difficoltà attuali.",
+        sourceLabel: "Fonte: UN News — news.un.org/it",
+        sourceUrl: "https://news.un.org/it"
+      }
+    ];
+
+    const newsGrid = document.getElementById("newsGrid");
+    const modalOverlay = document.getElementById("modalOverlay");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalDescription = document.getElementById("modalDescription");
+    const modalSource = document.getElementById("modalSource");
+    const modalClose = document.getElementById("modalClose");
+
+    newsItems.forEach(function (item) {
+      const button = document.createElement("button");
+      button.className = "news-card";
+      button.type = "button";
+      button.textContent = item.title;
+
+      button.addEventListener("click", function () {
+        modalTitle.textContent = item.title;
+        modalDescription.textContent = item.description;
+        modalSource.textContent = item.sourceLabel;
+        modalSource.href = item.sourceUrl;
+        modalOverlay.classList.add("open");
+        modalOverlay.setAttribute("aria-hidden", "false");
+      });
+
+      newsGrid.appendChild(button);
+    });
+
+    function closeModal() {
+      modalOverlay.classList.remove("open");
+      modalOverlay.setAttribute("aria-hidden", "true");
+    }
+
+    modalClose.addEventListener("click", closeModal);
+
+    modalOverlay.addEventListener("click", function (event) {
+      if (event.target === modalOverlay) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && modalOverlay.classList.contains("open")) {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+</html>
