@@ -18,7 +18,7 @@
 
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       background: var(--sfondo);
       color: var(--testo);
     }
@@ -37,7 +37,7 @@
       margin-bottom: 24px;
       padding: 12px 18px;
       border-radius: 999px;
-      background: var(--verde);
+      background: var(--rosso);
       color: white;
       text-decoration: none;
       font-weight: 700;
@@ -45,7 +45,7 @@
     }
 
     .back-link:hover {
-      background: var(--rosso);
+      background: #9f0d1d;
       transform: translateY(-2px);
     }
 
@@ -115,9 +115,9 @@
 
     .media-title {
       position: absolute;
+      left: 0;
       right: 0;
       bottom: 0;
-      left: 0;
       margin: 0;
       padding: 18px 16px 16px;
       color: white;
@@ -223,7 +223,7 @@
           <div class="media-details-inner">
             <div class="media-details-content">
               <span class="media-type">Libro</span>
-              <p class="media-description">Racconta la storia di una famiglia palestinese attraverso generazioni, mostrando guerra, perdita e identita.</p>
+              <p class="media-description">Racconta la storia di una famiglia palestinese attraverso generazioni, mostrando guerra, perdita e identità.</p>
             </div>
           </div>
         </div>
@@ -231,7 +231,7 @@
 
       <button class="media-card" type="button" aria-expanded="false">
         <div class="media-cover">
-          <img src="Il suicidio di Israele – Anna Foa.jpg" alt="Copertina di Il suicidio di Israele" />
+          <img src="Il suicidio di Israele - Anna Foa.jpg" alt="Copertina di Il suicidio di Israele" />
           <h2 class="media-title">Il suicidio di Israele</h2>
         </div>
         <div class="media-details">
@@ -253,7 +253,7 @@
           <div class="media-details-inner">
             <div class="media-details-content">
               <span class="media-type">Libro</span>
-              <p class="media-description">Romanzo simbolico su identita culturale, religione e conflitti tra popoli.</p>
+              <p class="media-description">Romanzo simbolico su identità culturale, religione e conflitti tra popoli.</p>
             </div>
           </div>
         </div>
@@ -298,7 +298,7 @@
           <div class="media-details-inner">
             <div class="media-details-content">
               <span class="media-type">Documentario</span>
-              <p class="media-description">Documentario che mostra la vita nei territori occupati e la realta quotidiana del conflitto.</p>
+              <p class="media-description">Documentario che mostra la vita nei territori occupati e la realtà quotidiana del conflitto.</p>
             </div>
           </div>
         </div>
@@ -307,12 +307,12 @@
   </main>
 
   <script>
-    const cards = document.querySelectorAll('.media-card');
+    const cards = document.querySelectorAll(".media-card");
 
-    cards.forEach((card) => {
-      card.addEventListener('click', () => {
-        const isExpanded = card.getAttribute('aria-expanded') === 'true';
-        card.setAttribute('aria-expanded', String(!isExpanded));
+    cards.forEach(function (card) {
+      card.addEventListener("click", function () {
+        const isExpanded = card.getAttribute("aria-expanded") === "true";
+        card.setAttribute("aria-expanded", String(!isExpanded));
       });
     });
   </script>
