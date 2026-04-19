@@ -112,30 +112,26 @@
     }
 
     .action-buttons {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 16px;
-      flex-wrap: wrap;
       margin-top: 30px;
     }
 
-    .quiz-button {
+    .main-button {
       display: inline-block;
-      background: #005826;
+      text-align: center;
       color: #fff;
-      padding: 15px 25px;
+      padding: 16px 24px;
       font-weight: 700;
       font-size: 18px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
+      border-radius: 8px;
       text-decoration: none;
-      transition: background-color 0.3s ease;
+      transition: transform 0.25s ease, background-color 0.25s ease;
     }
 
-    .quiz-button:hover {
-      background: #003d19;
+    .main-button:hover {
+      transform: translateY(-2px);
     }
 
     .books-button {
@@ -144,6 +140,14 @@
 
     .books-button:hover {
       background: #9f0d1d;
+    }
+
+    .news-button {
+      background: #d9781f;
+    }
+
+    .news-button:hover {
+      background: #b65f10;
     }
 
     footer {
@@ -254,14 +258,7 @@
       }
 
       .action-buttons {
-        display: block;
-      }
-
-      .quiz-button {
-        display: block;
-        width: 100%;
-        margin-bottom: 12px;
-        text-align: center;
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -284,6 +281,7 @@
       <li data-target="eventi2023">7. Eventi recenti: Il 7 Ottobre e la crisi attuale</li>
       <li><a class="menu-link" href="Quiz.html">8. Quiz</a></li>
       <li><a class="menu-link" href="LibriFilm.html">9. Libri e Film consigliati</a></li>
+      <li><a class="menu-link" href="attualita.html">10. Attualità</a></li>
     </ul>
   </nav>
 
@@ -388,8 +386,8 @@
     </div>
 
     <div class="action-buttons">
-      <a href="Quiz.html" class="quiz-button" aria-label="Vai al Quiz sulla Palestina">Vai al Quiz</a>
-      <a href="LibriFilm.html" class="quiz-button books-button" aria-label="Vai alla pagina Libri e Film consigliati">Libri e Film consigliati</a>
+      <a href="LibriFilm.html" class="main-button books-button" aria-label="Vai alla pagina Libri e Film consigliati">Libri e Film consigliati</a>
+      <a href="attualita.html" class="main-button news-button" aria-label="Vai alla pagina Attualità">Attualità</a>
     </div>
 
     <div class="legal-box">
