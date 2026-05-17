@@ -51,17 +51,21 @@
       margin-bottom: 25px;
     }
 
-    p {
+    .question p {
       font-weight: 700;
       font-size: 18px;
+      margin-bottom: 14px;
     }
 
     label {
-      display: block;
-      margin-top: 8px;
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      align-items: start;
+      column-gap: 10px;
+      margin-top: 10px;
       cursor: pointer;
       font-size: 16px;
-      padding: 4px 8px;
+      padding: 6px 8px;
       border-radius: 4px;
       transition: background-color 0.3s ease;
     }
@@ -79,8 +83,12 @@
     }
 
     input[type="radio"] {
-      margin-right: 8px;
+      margin: 3px 0 0 0;
       cursor: pointer;
+    }
+
+    .option-text {
+      line-height: 1.5;
     }
 
     button {
@@ -120,82 +128,82 @@
   <form id="quizForm">
     <div class="question">
       <p>1. Chi è considerato il padre del sionismo politico?</p>
-      <label><input type="radio" name="q1" value="a" /> a) David Ben Gurion</label>
-      <label><input type="radio" name="q1" value="b" /> b) Yasser Arafat</label>
-      <label><input type="radio" name="q1" value="c" /> c) Theodor Herzl</label>
-      <label><input type="radio" name="q1" value="d" /> d) Golda Meir</label>
+      <label><input type="radio" name="q1" value="a" /><span class="option-text">a) David Ben Gurion</span></label>
+      <label><input type="radio" name="q1" value="b" /><span class="option-text">b) Yasser Arafat</span></label>
+      <label><input type="radio" name="q1" value="c" /><span class="option-text">c) Theodor Herzl</span></label>
+      <label><input type="radio" name="q1" value="d" /><span class="option-text">d) Golda Meir</span></label>
     </div>
 
     <div class="question">
       <p>2. Cosa prevedeva la Risoluzione ONU 181 del 1947?</p>
-      <label><input type="radio" name="q2" value="a" /> a) La creazione di uno Stato unico in Palestina</label>
-      <label><input type="radio" name="q2" value="b" /> b) La spartizione della Palestina in due Stati, uno arabo e uno ebraico</label>
-      <label><input type="radio" name="q2" value="c" /> c) Il ritiro delle truppe britanniche senza spartizione</label>
-      <label><input type="radio" name="q2" value="d" /> d) La creazione di uno Stato palestinese solo</label>
+      <label><input type="radio" name="q2" value="a" /><span class="option-text">a) La creazione di uno Stato unico in Palestina</span></label>
+      <label><input type="radio" name="q2" value="b" /><span class="option-text">b) La spartizione della Palestina in due Stati, uno arabo e uno ebraico</span></label>
+      <label><input type="radio" name="q2" value="c" /><span class="option-text">c) Il ritiro delle truppe britanniche senza spartizione</span></label>
+      <label><input type="radio" name="q2" value="d" /><span class="option-text">d) La creazione di uno Stato palestinese solo</span></label>
     </div>
 
     <div class="question">
       <p>3. Qual è il significato della parola "Nakba" per i palestinesi?</p>
-      <label><input type="radio" name="q3" value="a" /> a) Vittoria</label>
-      <label><input type="radio" name="q3" value="b" /> b) Catastrofe</label>
-      <label><input type="radio" name="q3" value="c" /> c) Pace</label>
-      <label><input type="radio" name="q3" value="d" /> d) Indipendenza</label>
+      <label><input type="radio" name="q3" value="a" /><span class="option-text">a) Vittoria</span></label>
+      <label><input type="radio" name="q3" value="b" /><span class="option-text">b) Catastrofe</span></label>
+      <label><input type="radio" name="q3" value="c" /><span class="option-text">c) Pace</span></label>
+      <label><input type="radio" name="q3" value="d" /><span class="option-text">d) Indipendenza</span></label>
     </div>
 
     <div class="question">
       <p>4. Quale organizzazione nacque nel 1964 per unificare la lotta palestinese?</p>
-      <label><input type="radio" name="q4" value="a" /> a) Hamas</label>
-      <label><input type="radio" name="q4" value="b" /> b) OLP (Organizzazione per la Liberazione della Palestina)</label>
-      <label><input type="radio" name="q4" value="c" /> c) Al-Qaeda</label>
-      <label><input type="radio" name="q4" value="d" /> d) Hezbollah</label>
+      <label><input type="radio" name="q4" value="a" /><span class="option-text">a) Hamas</span></label>
+      <label><input type="radio" name="q4" value="b" /><span class="option-text">b) OLP (Organizzazione per la Liberazione della Palestina)</span></label>
+      <label><input type="radio" name="q4" value="c" /><span class="option-text">c) Al-Qaeda</span></label>
+      <label><input type="radio" name="q4" value="d" /><span class="option-text">d) Hezbollah</span></label>
     </div>
 
     <div class="question">
       <p>5. Cosa fu la "Linea Verde"?</p>
-      <label><input type="radio" name="q5" value="a" /> a) Il confine dopo la guerra del 1948 tra Israele e i paesi arabi</label>
-      <label><input type="radio" name="q5" value="b" /> b) Un trattato di pace firmato nel 1967</label>
-      <label><input type="radio" name="q5" value="c" /> c) La barriera costruita da Israele in Cisgiordania</label>
-      <label><input type="radio" name="q5" value="d" /> d) Il percorso di una marcia pacifica palestinese</label>
+      <label><input type="radio" name="q5" value="a" /><span class="option-text">a) Il confine dopo la guerra del 1948 tra Israele e i paesi arabi</span></label>
+      <label><input type="radio" name="q5" value="b" /><span class="option-text">b) Un trattato di pace firmato nel 1967</span></label>
+      <label><input type="radio" name="q5" value="c" /><span class="option-text">c) La barriera costruita da Israele in Cisgiordania</span></label>
+      <label><input type="radio" name="q5" value="d" /><span class="option-text">d) Il percorso di una marcia pacifica palestinese</span></label>
     </div>
 
     <div class="question">
       <p>6. Cosa caratterizzò la Prima Intifada del 1987?</p>
-      <label><input type="radio" name="q6" value="a" /> a) Una guerra convenzionale con eserciti regolari</label>
-      <label><input type="radio" name="q6" value="b" /> b) Scioperi, resistenza civile popolare e attacchi da parte di ragazzi palestinesi anche con armi di fortuna come sassi e bastoni</label>
-      <label><input type="radio" name="q6" value="c" /> c) Attacchi suicidi e terrorismo</label>
-      <label><input type="radio" name="q6" value="d" /> d) Un trattato di pace tra Israele e Palestina</label>
+      <label><input type="radio" name="q6" value="a" /><span class="option-text">a) Una guerra convenzionale con eserciti regolari</span></label>
+      <label><input type="radio" name="q6" value="b" /><span class="option-text">b) Scioperi, resistenza civile popolare e attacchi da parte di ragazzi palestinesi anche con armi di fortuna come sassi e bastoni</span></label>
+      <label><input type="radio" name="q6" value="c" /><span class="option-text">c) Attacchi suicidi e terrorismo</span></label>
+      <label><input type="radio" name="q6" value="d" /><span class="option-text">d) Un trattato di pace tra Israele e Palestina</span></label>
     </div>
 
     <div class="question">
       <p>7. Quando furono firmati gli Accordi di Oslo?</p>
-      <label><input type="radio" name="q7" value="a" /> a) 1948</label>
-      <label><input type="radio" name="q7" value="b" /> b) 1967</label>
-      <label><input type="radio" name="q7" value="c" /> c) 1993</label>
-      <label><input type="radio" name="q7" value="d" /> d) 2005</label>
+      <label><input type="radio" name="q7" value="a" /><span class="option-text">a) 1948</span></label>
+      <label><input type="radio" name="q7" value="b" /><span class="option-text">b) 1967</span></label>
+      <label><input type="radio" name="q7" value="c" /><span class="option-text">c) 1993</span></label>
+      <label><input type="radio" name="q7" value="d" /><span class="option-text">d) 2005</span></label>
     </div>
 
     <div class="question">
       <p>8. Quale delle seguenti affermazioni è vera riguardo al muro costruito da Israele in Cisgiordania?</p>
-      <label><input type="radio" name="q8" value="a" /> a) È stato costruito dopo la seconda Intifada (quella del 2002), secondo Israele per motivi di sicurezza</label>
-      <label><input type="radio" name="q8" value="b" /> b) È stato costruito per separare Israele dal Libano</label>
-      <label><input type="radio" name="q8" value="c" /> c) È una linea di confine ufficiale riconosciuta dall'ONU</label>
-      <label><input type="radio" name="q8" value="d" /> d) È stato demolito nel 2002</label>
+      <label><input type="radio" name="q8" value="a" /><span class="option-text">a) È stato costruito dopo la seconda Intifada (quella del 2002), secondo Israele per motivi di sicurezza</span></label>
+      <label><input type="radio" name="q8" value="b" /><span class="option-text">b) È stato costruito per separare Israele dal Libano</span></label>
+      <label><input type="radio" name="q8" value="c" /><span class="option-text">c) È una linea di confine ufficiale riconosciuta dall'ONU</span></label>
+      <label><input type="radio" name="q8" value="d" /><span class="option-text">d) È stato demolito nel 2002</span></label>
     </div>
 
     <div class="question">
       <p>9. Qual è il ruolo politico di Hamas nella Palestina?</p>
-      <label><input type="radio" name="q9" value="a" /> a) Controlla la Cisgiordania</label>
-      <label><input type="radio" name="q9" value="b" /> b) È un movimento pacifista senza potere politico</label>
-      <label><input type="radio" name="q9" value="c" /> c) Controlla la Striscia di Gaza dal 2007</label>
-      <label><input type="radio" name="q9" value="d" /> d) È un'organizzazione internazionale di aiuti umanitari</label>
+      <label><input type="radio" name="q9" value="a" /><span class="option-text">a) Controlla la Cisgiordania</span></label>
+      <label><input type="radio" name="q9" value="b" /><span class="option-text">b) È un movimento pacifista senza potere politico</span></label>
+      <label><input type="radio" name="q9" value="c" /><span class="option-text">c) Controlla la Striscia di Gaza dal 2007</span></label>
+      <label><input type="radio" name="q9" value="d" /><span class="option-text">d) È un'organizzazione internazionale di aiuti umanitari</span></label>
     </div>
 
     <div class="question">
       <p>10. Cosa è successo il 7 ottobre 2023?</p>
-      <label><input type="radio" name="q10" value="a" /> a) Israele si è ritirato dalla Cisgiordania</label>
-      <label><input type="radio" name="q10" value="b" /> b) L'ONU ha riconosciuto ufficialmente lo Stato palestinese</label>
-      <label><input type="radio" name="q10" value="c" /> c) Un attacco di Hamas in territorio israeliano ha scatenato una nuova fase di conflitto</label>
-      <label><input type="radio" name="q10" value="d" /> d) Gli Accordi di Camp David sono stati firmati</label>
+      <label><input type="radio" name="q10" value="a" /><span class="option-text">a) Israele si è ritirato dalla Cisgiordania</span></label>
+      <label><input type="radio" name="q10" value="b" /><span class="option-text">b) L'ONU ha riconosciuto ufficialmente lo Stato palestinese</span></label>
+      <label><input type="radio" name="q10" value="c" /><span class="option-text">c) Un attacco di Hamas in territorio israeliano ha scatenato una nuova fase di conflitto</span></label>
+      <label><input type="radio" name="q10" value="d" /><span class="option-text">d) Gli Accordi di Camp David sono stati firmati</span></label>
     </div>
 
     <button type="button" id="submitQuiz">Verifica Risposte</button>
