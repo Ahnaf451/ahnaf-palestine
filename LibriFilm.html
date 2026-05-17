@@ -124,6 +124,7 @@
       color: white;
       font-size: 20px;
       font-weight: 800;
+      line-height: 1.35;
       background: linear-gradient(to top, rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.08));
     }
 
@@ -155,35 +156,45 @@
       transition-delay: 0.08s;
     }
 
-    .media-tags {
+    .media-topline {
       display: flex;
-      flex-wrap: wrap;
+      align-items: center;
       gap: 8px;
+      flex-wrap: nowrap;
       margin-bottom: 12px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .media-topline::-webkit-scrollbar {
+      display: none;
     }
 
     .media-type {
       display: inline-block;
+      flex: 0 0 auto;
       padding: 6px 10px;
       border-radius: 999px;
       background: #eef6ef;
       color: var(--verde);
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.8px;
+      white-space: nowrap;
     }
 
     .media-meta {
       display: inline-block;
+      flex: 0 0 auto;
       padding: 6px 10px;
       border-radius: 999px;
       background: #fff1f2;
       color: var(--rosso);
       border: 1px solid #f0b8bf;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 800;
-      letter-spacing: 0.2px;
+      white-space: nowrap;
     }
 
     .media-description {
@@ -241,7 +252,7 @@
         <div class="media-details">
           <div class="media-details-inner">
             <div class="media-details-content">
-              <div class="media-tags">
+              <div class="media-topline">
                 <span class="media-type">Libro</span>
                 <span class="media-meta">Autrice: Susan Abulhawa</span>
                 <span class="media-meta">Anno: 2011</span>
@@ -254,13 +265,13 @@
 
       <button class="media-card" type="button" aria-expanded="false">
         <div class="media-cover">
-          <img src="il-suicidio-di-israele-anna-foa.jpg" alt="Copertina di Il suicidio di Israele" />
+          <img src="Il suicidio di Israele – Anna Foa.jpg" alt="Copertina di Il suicidio di Israele" />
           <h2 class="media-title">Il suicidio di Israele</h2>
         </div>
         <div class="media-details">
           <div class="media-details-inner">
             <div class="media-details-content">
-              <div class="media-tags">
+              <div class="media-topline">
                 <span class="media-type">Libro</span>
                 <span class="media-meta">Autrice: Anna Foa</span>
                 <span class="media-meta">Anno: 2024</span>
@@ -279,7 +290,7 @@
         <div class="media-details">
           <div class="media-details-inner">
             <div class="media-details-content">
-              <div class="media-tags">
+              <div class="media-topline">
                 <span class="media-type">Libro</span>
                 <span class="media-meta">Autrice: Suad Amiry</span>
                 <span class="media-meta">Anno: 2020</span>
@@ -298,7 +309,7 @@
         <div class="media-details">
           <div class="media-details-inner">
             <div class="media-details-content">
-              <div class="media-tags">
+              <div class="media-topline">
                 <span class="media-type">Fumetto</span>
                 <span class="media-meta">Autore: Joe Sacco</span>
                 <span class="media-meta">Anno: 2009</span>
@@ -317,7 +328,7 @@
         <div class="media-details">
           <div class="media-details-inner">
             <div class="media-details-content">
-              <div class="media-tags">
+              <div class="media-topline">
                 <span class="media-type">Film</span>
                 <span class="media-meta">Regista: Kaouther Ben Hania</span>
                 <span class="media-meta">Anno: 2025</span>
@@ -336,7 +347,7 @@
         <div class="media-details">
           <div class="media-details-inner">
             <div class="media-details-content">
-              <div class="media-tags">
+              <div class="media-topline">
                 <span class="media-type">Documentario</span>
                 <span class="media-meta">Registi: Adra, Ballal, Abraham, Szor</span>
                 <span class="media-meta">Anno: 2024</span>
