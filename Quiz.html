@@ -115,7 +115,6 @@
 </head>
 <body>
   <a class="back-link" href="index.html">Torna alla pagina principale</a>
-
   <h2>Quiz sul conflitto israelo-palestinese</h2>
 
   <form id="quizForm">
@@ -196,4 +195,87 @@
       <label><input type="radio" name="q10" value="a" /> a) Israele si è ritirato dalla Cisgiordania</label>
       <label><input type="radio" name="q10" value="b" /> b) L'ONU ha riconosciuto ufficialmente lo Stato palestinese</label>
       <label><input type="radio" name="q10" value="c" /> c) Un attacco di Hamas in territorio israeliano ha scatenato una nuova fase di conflitto</label>
-      <label><input type="radio"
+      <label><input type="radio" name="q10" value="d" /> d) Gli Accordi di Camp David sono stati firmati</label>
+    </div>
+
+    <button type="button" id="submitQuiz">Verifica Risposte</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    const correctAnswers = {
+      q1: "c",
+      q2: "b",
+      q3: "b",
+      q4: "b",
+      q5: "a",
+      q6: "b",
+      q7: "c",
+      q8: "a",
+      q9: "c",
+      q10: "c"
+    };
+
+    document.getElementById("submitQuiz").addEventListener("click", function () {
+      let score = 0;
+      const total = Object.keys(correctAnswers).length;
+      let unanswered = 0;
+      const result = document.getElementById("result");
+
+      const labels = document.querySelectorAll("label");
+      labels.forEach(function (label) {
+        label.classList.remove("correct", "wrong");
+      });
+
+      for (let i = 1; i <= total; i++) {
+        const q = "q" + i;
+        const radios = document.getElementsByName(q);
+        let answered = false;
+        let userAnswer = null;
+
+        for (const radio of radios) {
+          if (radio.checked) {
+            answered = true;
+            userAnswer = radio.value;
+            break;
+          }
+        }
+
+        if (!answered) {
+          unanswered++;
+          continue;
+        }
+
+        if (userAnswer === correctAnswers[q]) {
+          score++;
+          radios.forEach(function (radio) {
+            if (radio.value === userAnswer) {
+              radio.parentElement.classList.add("correct");
+            }
+          });
+        } else {
+          radios.forEach(function (radio) {
+            if (radio.value === userAnswer) {
+              radio.parentElement.classList.add("wrong");
+            }
+            if (radio.value === correctAnswers[q]) {
+              radio.parentElement.classList.add("correct");
+            }
+          });
+        }
+      }
+
+      if (unanswered > 0) {
+        result.classList.add("error");
+        result.textContent = "Rispondi prima a tutte le " + total + " domande. Ne mancano " + unanswered + ".";
+        return;
+      }
+
+      const wrong = total - score;
+      result.classList.remove("error");
+      result.textContent = "Hai risposto correttamente a " + score + " su " + total + " domande. Hai sbagliato " + wrong + " domanda" + (wrong !== 1 ? "e" : "") + ".";
+    });
+  </script>
+</body>
+</html>
