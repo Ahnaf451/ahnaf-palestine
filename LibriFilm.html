@@ -8,6 +8,7 @@
     :root {
       --verde: #005826;
       --rosso: #ce1126;
+      --rosso-scuro: #9f0d1d;
       --sfondo: #f4f4f4;
       --testo: #222;
     }
@@ -45,7 +46,7 @@
     }
 
     .back-link:hover {
-      background: #9f0d1d;
+      background: var(--rosso-scuro);
       transform: translateY(-2px);
     }
 
@@ -154,9 +155,15 @@
       transition-delay: 0.08s;
     }
 
+    .media-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
     .media-type {
       display: inline-block;
-      margin-bottom: 10px;
       padding: 6px 10px;
       border-radius: 999px;
       background: #eef6ef;
@@ -165,6 +172,18 @@
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.8px;
+    }
+
+    .media-meta {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #fff1f2;
+      color: var(--rosso);
+      border: 1px solid #f0b8bf;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.2px;
     }
 
     .media-description {
@@ -222,8 +241,12 @@
         <div class="media-details">
           <div class="media-details-inner">
             <div class="media-details-content">
-              <span class="media-type">Libro</span>
-              <p class="media-description">Romanzo di Susan Abulhawa, pubblicato in italiano nel 2011. Racconta la storia di una famiglia palestinese attraverso generazioni, mostrando guerra, perdita e identità.</p>
+              <div class="media-tags">
+                <span class="media-type">Libro</span>
+                <span class="media-meta">Autrice: Susan Abulhawa</span>
+                <span class="media-meta">Anno: 2011</span>
+              </div>
+              <p class="media-description">Romanzo che racconta la storia di una famiglia palestinese attraverso generazioni, mostrando guerra, perdita e identità.</p>
             </div>
           </div>
         </div>
@@ -231,14 +254,18 @@
 
       <button class="media-card" type="button" aria-expanded="false">
         <div class="media-cover">
-          <img src="Il suicidio di Israele - Anna Foa.jpg" alt="Copertina di Il suicidio di Israele" />
+          <img src="Il suicidio di Israele – Anna Foa.jpg" alt="Copertina di Il suicidio di Israele" />
           <h2 class="media-title">Il suicidio di Israele</h2>
         </div>
         <div class="media-details">
           <div class="media-details-inner">
             <div class="media-details-content">
-              <span class="media-type">Libro</span>
-              <p class="media-description">Saggio di Anna Foa, pubblicato nel 2024. Analizza le scelte politiche e storiche di Israele e le loro conseguenze nel conflitto.</p>
+              <div class="media-tags">
+                <span class="media-type">Libro</span>
+                <span class="media-meta">Autrice: Anna Foa</span>
+                <span class="media-meta">Anno: 2024</span>
+              </div>
+              <p class="media-description">Saggio che analizza le scelte politiche e storiche di Israele e le loro conseguenze nel conflitto.</p>
             </div>
           </div>
         </div>
@@ -252,8 +279,12 @@
         <div class="media-details">
           <div class="media-details-inner">
             <div class="media-details-content">
-              <span class="media-type">Libro</span>
-              <p class="media-description">Romanzo di Suad Amiry, pubblicato in edizione italiana nel 2020. Propone una riflessione su identità culturale, religione e conflitti tra popoli.</p>
+              <div class="media-tags">
+                <span class="media-type">Libro</span>
+                <span class="media-meta">Autrice: Suad Amiry</span>
+                <span class="media-meta">Anno: 2020</span>
+              </div>
+              <p class="media-description">Romanzo che propone una riflessione su identità culturale, religione e conflitti tra popoli.</p>
             </div>
           </div>
         </div>
@@ -267,8 +298,12 @@
         <div class="media-details">
           <div class="media-details-inner">
             <div class="media-details-content">
-              <span class="media-type">Fumetto</span>
-              <p class="media-description">Graphic novel di Joe Sacco, pubblicata nel 2009. Racconta eventi reali della guerra e la vita dei civili a Gaza.</p>
+              <div class="media-tags">
+                <span class="media-type">Fumetto</span>
+                <span class="media-meta">Autore: Joe Sacco</span>
+                <span class="media-meta">Anno: 2009</span>
+              </div>
+              <p class="media-description">Graphic novel storica che racconta eventi reali della guerra e la vita dei civili a Gaza.</p>
             </div>
           </div>
         </div>
@@ -282,8 +317,12 @@
         <div class="media-details">
           <div class="media-details-inner">
             <div class="media-details-content">
-              <span class="media-type">Film</span>
-              <p class="media-description">Film di Kaouther Ben Hania, uscito nel 2025. Ricostruisce la vicenda reale di Hind Rajab nel contesto del conflitto a Gaza.</p>
+              <div class="media-tags">
+                <span class="media-type">Film</span>
+                <span class="media-meta">Regista: Kaouther Ben Hania</span>
+                <span class="media-meta">Anno: 2025</span>
+              </div>
+              <p class="media-description">Film che ricostruisce la vicenda reale di Hind Rajab nel contesto del conflitto a Gaza.</p>
             </div>
           </div>
         </div>
@@ -297,8 +336,12 @@
         <div class="media-details">
           <div class="media-details-inner">
             <div class="media-details-content">
-              <span class="media-type">Documentario</span>
-              <p class="media-description">Documentario di Basel Adra, Hamdan Ballal, Yuval Abraham e Rachel Szor, distribuito nel 2024. Mostra la vita nei territori occupati e la realtà quotidiana del conflitto.</p>
+              <div class="media-tags">
+                <span class="media-type">Documentario</span>
+                <span class="media-meta">Registi: Adra, Ballal, Abraham, Szor</span>
+                <span class="media-meta">Anno: 2024</span>
+              </div>
+              <p class="media-description">Documentario che mostra la vita nei territori occupati e la realtà quotidiana del conflitto.</p>
             </div>
           </div>
         </div>
